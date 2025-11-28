@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pazir/backend/atiomentnexchat.dart';
+import 'package:pazir/backend/dvaitairtanui.dart';
+import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/chinmudrayul/niyasdaliniyul.dart';
 
 class PreAgniChuang extends StatefulWidget {
   const PreAgniChuang({super.key});
@@ -9,7 +13,9 @@ class PreAgniChuang extends StatefulWidget {
 }
 
 class _PreAgniChuang extends State<PreAgniChuang> {
-  final TextEditingController _betundrargm = TextEditingController();
+  final TextEditingController _yoGIhiraNi = TextEditingController();
+  int _asSGniDe = 0;
+  String? enYIngArImg;
   @override
   void initState() {
     super.initState();
@@ -69,59 +75,91 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                 ),
                               ),
                             ),
-                            PhysicalModel(
-                              color: Colors.transparent,
-                              elevation: 0,
-                              borderRadius: BorderRadius.circular(45),
-                              child: Container(
-                                width: 121,
-                                height: 42,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: const Color(0xFF1E7EE6),
-                                  ),
-                                  borderRadius: BorderRadius.circular(45),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color.fromRGBO(30, 126, 230, 1),
-                                          Color.fromRGBO(184, 218, 255, 1),
-                                        ],
-                                        begin: Alignment(-1, 0),
-                                        end: Alignment(1, 0),
-                                      ),
-                                      borderRadius: BorderRadius.circular(45),
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                if (enYIngArImg != null &&
+                                    _yoGIhiraNi.text != "") {
+                                  int stORatiCid =
+                                      FFAppState
+                                          .instance
+                                          .zazImeAllChats
+                                          .length +
+                                      1;
+
+                                  CinapRimideCh newapRimiCh = CinapRimideCh(
+                                    serRAcidumCid: stORatiCid,
+                                    cheMIcalerUsers: [
+                                      FFAppState.instance.flexionLogUid,
+                                    ],
+                                    falOTioncIs: true,
+                                    spFOlianfWa: _yoGIhiraNi.text,
+                                    masBOosterKs: 0,
+                                    scROffubCover: enYIngArImg,
+                                    scrEXtubMusic: _asSGniDe,
+                                  );
+
+                                  FFAppState.instance.draTUngAddCh(newapRimiCh);
+
+                                  Get.off(
+                                    NiyasdAliniYul(gizintonCh: newapRimiCh),
+                                  );
+                                }
+                              },
+                              child: PhysicalModel(
+                                color: Colors.transparent,
+                                elevation: 0,
+                                borderRadius: BorderRadius.circular(45),
+                                child: Container(
+                                  width: 121,
+                                  height: 42,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: const Color(0xFF1E7EE6),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset(
-                                          "assets/images/iuiwqXBSFCUYQW.png",
-                                          width: 23,
-                                          height: 20,
+                                    borderRadius: BorderRadius.circular(45),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromRGBO(30, 126, 230, 1),
+                                            Color.fromRGBO(184, 218, 255, 1),
+                                          ],
+                                          begin: Alignment(-1, 0),
+                                          end: Alignment(1, 0),
                                         ),
-                                        SizedBox(width: 18),
-                                        Text(
-                                          "Send",
-                                          style: TextStyle(
-                                            fontFamily: 'NotoSans',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                            color: Color.fromRGBO(
-                                              255,
-                                              255,
-                                              255,
-                                              1,
+                                        borderRadius: BorderRadius.circular(45),
+                                      ),
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            "assets/images/iuiwqXBSFCUYQW.png",
+                                            width: 23,
+                                            height: 20,
+                                          ),
+                                          SizedBox(width: 18),
+                                          Text(
+                                            "Send",
+                                            style: TextStyle(
+                                              fontFamily: 'NotoSans',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -144,7 +182,7 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                   child: Container(height: 24),
                                 ),
                                 Text(
-                                  "Theme:",
+                                  "Cover:",
                                   style: TextStyle(
                                     fontFamily: 'Raleway',
                                     fontSize: 20,
@@ -157,17 +195,47 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                   child: Container(height: 16),
                                 ),
 
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: Icon(
-                                    Icons.add,
-                                    color: Color.fromRGBO(30, 126, 230, 1),
+                                GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
+                                  onTap: () async {
+                                    enYIngArImg =
+                                        await whisperCalmImageRipple();
+                                    setState(() {});
+                                  },
+                                  child: Container(
+                                    width: 120,
+                                    height: 120,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        Icon(
+                                          Icons.add,
+                                          color: Color.fromRGBO(
+                                            30,
+                                            126,
+                                            230,
+                                            1,
+                                          ),
+                                        ),
+                                        if (enYIngArImg != null)
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadiusGeometry.circular(
+                                                  16,
+                                                ),
+                                            child: Image(
+                                              image: AssetImage(enYIngArImg!),
+                                              fit: BoxFit.cover,
+                                              width: 120,
+                                              height: 120,
+                                            ),
+                                          ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 DecoratedBox(
@@ -175,7 +243,7 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                   child: Container(height: 24),
                                 ),
                                 Text(
-                                  "Content:",
+                                  "Theme:",
                                   style: TextStyle(
                                     fontFamily: 'Raleway',
                                     fontSize: 20,
@@ -198,9 +266,9 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                   alignment: Alignment.center,
                                   child: TextField(
                                     maxLines: 3,
-                                    controller: _betundrargm,
+                                    controller: _yoGIhiraNi,
                                     decoration: InputDecoration(
-                                      hintText: "Want to say",
+                                      hintText: "Enter theme",
                                       hintStyle: TextStyle(
                                         fontFamily: 'Raleway',
                                         fontSize: 14,
@@ -237,91 +305,128 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                   decoration: BoxDecoration(),
                                   child: Container(height: 16),
                                 ),
-                                GridView.count(
-                                  padding: EdgeInsets.all(0),
-                                  crossAxisCount: 3,
-                                  mainAxisSpacing: 12,
-                                  crossAxisSpacing: 21,
-                                  childAspectRatio: 98 / 122,
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  children: List.generate(5, (index) {
-                                    return Flex(
-                                      direction: Axis.vertical,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadiusGeometry.circular(
-                                                19.6,
+                                Builder(
+                                  builder: (context) {
+                                    final guSUtraRu =
+                                        FFAppState.instance.oroSEilMuType;
+                                    return GridView.count(
+                                      padding: EdgeInsets.all(0),
+                                      crossAxisCount: 3,
+                                      mainAxisSpacing: 12,
+                                      crossAxisSpacing: 12,
+                                      childAspectRatio: 98 / 122,
+                                      shrinkWrap: true,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      children: List.generate(5, (index) {
+                                        return Flex(
+                                          direction: Axis.vertical,
+                                          children: [
+                                            GestureDetector(
+                                              behavior:
+                                                  HitTestBehavior.translucent,
+                                              onTap: () {
+                                                setState(() {
+                                                  _asSGniDe = index;
+                                                });
+                                              },
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadiusGeometry.circular(
+                                                      19.6,
+                                                    ),
+                                                child: Image(
+                                                  image: AssetImage(
+                                                    guSUtraRu[index]["deFUnerlaTImg"],
+                                                  ),
+                                                  fit: BoxFit.cover,
+                                                  width: 98,
+                                                  height: 98,
+                                                ),
                                               ),
-                                          child: Image(
-                                            image: AssetImage(
-                                              "assets/images/Pazir.png",
                                             ),
-                                            fit: BoxFit.cover,
-                                            width: 98,
-                                            height: 98,
-                                          ),
-                                        ),
 
-                                        DecoratedBox(
-                                          decoration: BoxDecoration(),
-                                          child: Container(height: 6),
-                                        ),
-                                        PhysicalModel(
-                                          color: Colors.transparent,
-                                          elevation: 0,
-                                          borderRadius: BorderRadius.circular(
-                                            45,
-                                          ),
-                                          child: Container(
-                                            width: 20,
-                                            height: 20,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: const Color(0xFF1E7EE6),
-                                              ),
+                                            DecoratedBox(
+                                              decoration: BoxDecoration(),
+                                              child: Container(height: 6),
+                                            ),
+                                            PhysicalModel(
+                                              color: Colors.transparent,
+                                              elevation: 0,
                                               borderRadius:
                                                   BorderRadius.circular(45),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(
-                                                1.5,
-                                              ),
                                               child: Container(
+                                                width: 20,
+                                                height: 20,
                                                 decoration: BoxDecoration(
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color.fromRGBO(
-                                                        30,
-                                                        126,
-                                                        230,
-                                                        1,
-                                                      ),
-                                                      Color.fromRGBO(
-                                                        184,
-                                                        218,
-                                                        255,
-                                                        1,
-                                                      ),
-                                                    ],
-                                                    begin: Alignment(-1, 0),
-                                                    end: Alignment(1, 0),
+                                                  border: Border.all(
+                                                    color: _asSGniDe == index
+                                                        ? const Color(
+                                                            0xFF1E7EE6,
+                                                          )
+                                                        : Colors.transparent,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(45),
                                                 ),
-                                                alignment: AlignmentDirectional(
-                                                  0,
-                                                  0,
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                    1.5,
+                                                  ),
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      gradient: LinearGradient(
+                                                        colors:
+                                                            _asSGniDe == index
+                                                            ? [
+                                                                Color.fromRGBO(
+                                                                  30,
+                                                                  126,
+                                                                  230,
+                                                                  1,
+                                                                ),
+                                                                Color.fromRGBO(
+                                                                  184,
+                                                                  218,
+                                                                  255,
+                                                                  1,
+                                                                ),
+                                                              ]
+                                                            : [
+                                                                Color.fromRGBO(
+                                                                  255,
+                                                                  255,
+                                                                  255,
+                                                                  1,
+                                                                ),
+                                                                Color.fromRGBO(
+                                                                  255,
+                                                                  255,
+                                                                  255,
+                                                                  1,
+                                                                ),
+                                                              ],
+                                                        begin: Alignment(-1, 0),
+                                                        end: Alignment(1, 0),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            45,
+                                                          ),
+                                                    ),
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                          0,
+                                                          0,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ],
+                                          ],
+                                        );
+                                      }),
                                     );
-                                  }),
+                                  },
                                 ),
                                 DecoratedBox(
                                   decoration: BoxDecoration(),

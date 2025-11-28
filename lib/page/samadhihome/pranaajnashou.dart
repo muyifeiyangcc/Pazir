@@ -1,6 +1,14 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pazir/backend/dvaitairtanui.dart';
+import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/manipuramine/sitaliagnisarazhu.dart';
+import 'package:pazir/page/manipuramine/twistflowreport.dart';
+import 'package:pazir/page/samadhihome/ibhaktintegralf.dart';
+import 'package:pazir/page/samadhihome/koshashaktipa.dart';
+import 'package:pazir/page/samadhihome/openisoftenvdo.dart';
 
 class PranaAjnaShou extends StatefulWidget {
   const PranaAjnaShou({super.key});
@@ -10,6 +18,7 @@ class PranaAjnaShou extends StatefulWidget {
 }
 
 class _PranaAjnaShou extends State<PranaAjnaShou> {
+  double lenGTtBoa = 1.0;
   @override
   void initState() {
     super.initState();
@@ -45,7 +54,7 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
             Scaffold(
               backgroundColor: Color.fromRGBO(0, 0, 0, 0),
               body: SingleChildScrollView(
-                 physics: const ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 child: Column(
                   children: [
                     Stack(
@@ -185,47 +194,82 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                               Container(height: 16),
                               Align(
                                 alignment: AlignmentDirectional(0, 0),
-                                child: PhysicalModel(
-                                  color: Colors.transparent,
-                                  elevation: 0,
-                                  borderRadius: BorderRadius.circular(45),
-                                  child: Container(
-                                    width: 175,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color.fromRGBO(
-                                          255,
-                                          255,
-                                          255,
-                                          1,
-                                        ),
-                                      ),
-                                      borderRadius: BorderRadius.circular(45),
-                                    ),
+                                child: GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
+                                  onTap: () {
+                                    Get.dialog(KoshasHaktiPa());
+                                  },
+                                  child: PhysicalModel(
+                                    color: Colors.transparent,
+                                    elevation: 0,
+                                    borderRadius: BorderRadius.circular(45),
                                     child: Container(
+                                      width: 175,
+                                      height: 40,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color.fromRGBO(30, 126, 230, 1),
-                                            Color.fromRGBO(184, 218, 255, 1),
-                                          ],
-                                          begin: Alignment(-1, 0),
-                                          end: Alignment(1, 0),
+                                        border: Border.all(
+                                          color: const Color.fromRGBO(
+                                            255,
+                                            255,
+                                            255,
+                                            1,
+                                          ),
                                         ),
                                         borderRadius: BorderRadius.circular(45),
                                       ),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color.fromRGBO(30, 126, 230, 1),
+                                              Color.fromRGBO(184, 218, 255, 1),
+                                            ],
+                                            begin: Alignment(-1, 0),
+                                            end: Alignment(1, 0),
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            45,
+                                          ),
+                                        ),
 
-                                      child: Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(1.0),
-                                            child: Container(
-                                              width: 48,
-                                              height: 36,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(26),
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(
+                                                1.0,
+                                              ),
+                                              child: Container(
+                                                width: 48,
+                                                height: 36,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(26),
+                                                  color: Color.fromRGBO(
+                                                    255,
+                                                    255,
+                                                    255,
+                                                    1,
+                                                  ),
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                    7.0,
+                                                  ),
+                                                  child: Image(
+                                                    image: AssetImage(
+                                                      "assets/images/zxciuSNUIS.png",
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              "  UNLOCK WITH",
+                                              style: TextStyle(
+                                                fontFamily: 'NotoSans',
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w700,
                                                 color: Color.fromRGBO(
                                                   255,
                                                   255,
@@ -233,34 +277,9 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                                   1,
                                                 ),
                                               ),
-                                              alignment: Alignment.center,
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(
-                                                  7.0,
-                                                ),
-                                                child: Image(
-                                                  image: AssetImage(
-                                                    "assets/images/zxciuSNUIS.png",
-                                                  ),
-                                                ),
-                                              ),
                                             ),
-                                          ),
-                                          Text(
-                                            "  UNLOCK WITH",
-                                            style: TextStyle(
-                                              fontFamily: 'NotoSans',
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w700,
-                                              color: Color.fromRGBO(
-                                                255,
-                                                255,
-                                                255,
-                                                1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -296,82 +315,132 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                     ),
                                     child: Row(
                                       children: [
-                                        Text(
-                                          "Recommended",
-                                          style: TextStyle(
-                                            fontFamily: 'Raleway',
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color.fromRGBO(5, 3, 19, 1),
+                                        GestureDetector(
+                                          behavior: HitTestBehavior.translucent,
+                                          onTap: () {
+                                            setState(() {
+                                              lenGTtBoa = 1.0;
+                                            });
+                                          },
+                                          child: AnimatedDefaultTextStyle(
+                                            duration: const Duration(
+                                              milliseconds: 250,
+                                            ),
+                                            curve: Curves.easeInOut,
+                                            style: TextStyle(
+                                              fontFamily: 'Raleway',
+                                              fontSize: lenGTtBoa == 1.0
+                                                  ? 20
+                                                  : 14,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color.fromRGBO(
+                                                5,
+                                                3,
+                                                19,
+                                                lenGTtBoa == 1.0 ? 1 : .4,
+                                              ),
+                                            ),
+                                            child: const Text("Recommended"),
                                           ),
                                         ),
+
                                         SizedBox(width: 28),
 
-                                        Text(
-                                          "Follow",
-                                          style: TextStyle(
-                                            fontFamily: 'Raleway',
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color.fromRGBO(5, 3, 19, .4),
+                                        GestureDetector(
+                                          behavior: HitTestBehavior.translucent,
+                                          onTap: () {
+                                            setState(() {
+                                              lenGTtBoa = 2.0;
+                                            });
+                                          },
+                                          child: AnimatedDefaultTextStyle(
+                                            duration: const Duration(
+                                              milliseconds: 250,
+                                            ),
+                                            curve: Curves.easeInOut,
+                                            style: TextStyle(
+                                              fontFamily: 'Raleway',
+                                              fontSize: lenGTtBoa == 1.0
+                                                  ? 14
+                                                  : 20,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color.fromRGBO(
+                                                5,
+                                                3,
+                                                19,
+                                                lenGTtBoa == 1.0 ? .4 : 1,
+                                              ),
+                                            ),
+                                            child: const Text("Follow"),
                                           ),
                                         ),
 
                                         Spacer(),
-                                        PhysicalModel(
-                                          color: Colors.transparent,
-                                          elevation: 0,
-                                          borderRadius: BorderRadius.circular(
-                                            45,
-                                          ),
-                                          child: Container(
-                                            width: 73,
-                                            height: 42,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: const Color(0xFF1E7EE6),
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(45),
+                                        GestureDetector(
+                                          behavior: HitTestBehavior.translucent,
+                                          onTap: () {
+                                            Get.to(IbhaktinTegRalf());
+                                          },
+                                          child: PhysicalModel(
+                                            color: Colors.transparent,
+                                            elevation: 0,
+                                            borderRadius: BorderRadius.circular(
+                                              45,
                                             ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(
-                                                2.0,
-                                              ),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color.fromRGBO(
-                                                        30,
-                                                        126,
-                                                        230,
-                                                        1,
-                                                      ),
-                                                      Color.fromRGBO(
-                                                        184,
-                                                        218,
-                                                        255,
-                                                        1,
-                                                      ),
-                                                    ],
-                                                    begin: Alignment(-1, 0),
-                                                    end: Alignment(1, 0),
+                                            child: Container(
+                                              width: 73,
+                                              height: 42,
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: const Color(
+                                                    0xFF1E7EE6,
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(45),
                                                 ),
-                                                alignment: AlignmentDirectional(
-                                                  0,
-                                                  0,
+                                                borderRadius:
+                                                    BorderRadius.circular(45),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(
+                                                  2.0,
                                                 ),
-                                                child: Icon(
-                                                  Icons.add,
-                                                  color: Color.fromRGBO(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    1,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color.fromRGBO(
+                                                          30,
+                                                          126,
+                                                          230,
+                                                          1,
+                                                        ),
+                                                        Color.fromRGBO(
+                                                          184,
+                                                          218,
+                                                          255,
+                                                          1,
+                                                        ),
+                                                      ],
+                                                      begin: Alignment(-1, 0),
+                                                      end: Alignment(1, 0),
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          45,
+                                                        ),
+                                                  ),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                        0,
+                                                        0,
+                                                      ),
+                                                  child: Icon(
+                                                    Icons.add,
+                                                    color: Color.fromRGBO(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      1,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -396,13 +465,56 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                               decoration: BoxDecoration(),
                                               child: Container(height: 20),
                                             ),
-                                            Wrap(
-                                              runSpacing: 12,
-                                              children: ["1", "1", "1"]
-                                                  .map(
-                                                    (pazir) => _jayiHAsr(pazir),
-                                                  )
-                                                  .toList(),
+                                            Builder(
+                                              builder: (context) {
+                                                final reaCOrethAr = FFAppState
+                                                    .instance
+                                                    .zazImeAllArticles
+                                                    .where((pazir) {
+
+
+                                                      bool saINgnIs = !FFAppState
+                                                            .instance
+                                                            .dingingGetUser(
+                                                              FFAppState
+                                                                  .instance
+                                                                  .flexionLogUid,
+                                                            )!.relations.easingUBlock.contains(pazir.prakashakAUid);
+                                                      if (lenGTtBoa == 1.0) {
+                                                        return saINgnIs;
+                                                      } else {
+                                                        return FFAppState
+                                                            .instance
+                                                            .dingingGetUser(
+                                                              FFAppState
+                                                                  .instance
+                                                                  .flexionLogUid,
+                                                            )!
+                                                            .relations
+                                                            .vationUFollow
+                                                            .contains(
+                                                              pazir
+                                                                  .prakashakAUid,
+                                                            )&&saINgnIs;
+                                                      }
+                                                    });
+                                                if (reaCOrethAr.isEmpty) {
+                                                  return SizedBox(height: 330);
+                                                }
+                                                return Wrap(
+                                                  runSpacing: 12,
+                                                  children: reaCOrethAr
+                                                      .map(
+                                                        (pazir) =>
+                                                            _jayiHAsr(pazir),
+                                                      )
+                                                      .toList(),
+                                                );
+                                              },
+                                            ),
+                                            DecoratedBox(
+                                              decoration: BoxDecoration(),
+                                              child: Container(height: 121),
                                             ),
                                           ],
                                         ),
@@ -420,6 +532,7 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                 ),
               ),
             ),
+            diviUNityneXia(),
           ],
         ),
       ),
@@ -427,198 +540,256 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
   }
 
   Widget _jayiHAsr(pazir) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(255, 255, 255, 1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    PhysicalModel(
-                      color: Colors.transparent,
-                      elevation: 0,
-                      borderRadius: BorderRadius.circular(45),
-                      child: Container(
-                        width: 32,
-                        height: 32,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: const Color(0xFF1E7EE6)),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(2.0),
+    final rhealineUse = FFAppState.instance.dingingGetUser(pazir.prakashakAUid);
+
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        Get.to(
+          OpeniSofteNvdo(
+            equAThWoAid: pazir.lekhakAid,
+            asGTaUse: rhealineUse,
+            deSPiralLep: pazir.drishyaAVideo,
+          ),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(255, 255, 255, 1),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          Get.to(
+                            SitaliaGnisaraZhu(
+                              pranAGurUid: rhealineUse.sukhabUid,
+                              sthIRaType: 2.0,
+                            ),
+                          );
+                        },
+                        child: PhysicalModel(
+                          color: Colors.transparent,
+                          elevation: 0,
+                          borderRadius: BorderRadius.circular(45),
                           child: Container(
+                            width: 32,
+                            height: 32,
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromRGBO(30, 126, 230, 1),
-                                  Color.fromRGBO(184, 218, 255, 1),
-                                ],
-                                begin: Alignment(-1, 0),
-                                end: Alignment(1, 0),
+                              border: Border.all(
+                                color: const Color(0xFF1E7EE6),
                               ),
                               shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/Pazir.png"),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromRGBO(30, 126, 230, 1),
+                                      Color.fromRGBO(184, 218, 255, 1),
+                                    ],
+                                    begin: Alignment(-1, 0),
+                                    end: Alignment(1, 0),
+                                  ),
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      rhealineUse!.idanadiUAvatar,
+                                    ),
+                                    fit: BoxFit.cover
+                                  ),
+                                ),
+                                alignment: AlignmentDirectional(0, 0),
                               ),
                             ),
-                            alignment: AlignmentDirectional(0, 0),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 11),
-                    Text(
-                      "Apisai Sloan",
+                      SizedBox(width: 11),
+                      Text(
+                        rhealineUse.vivekaUName,
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Color.fromRGBO(5, 3, 19, 1),
+                        ),
+                      ),
+                      Spacer(),
+                      if (rhealineUse.sukhabUid !=
+                          FFAppState.instance.flexionLogUid)
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            Get.dialog(
+                              TwistfLowReport(
+                                lumIAnatUid: rhealineUse.sukhabUid,
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 24,
+                            decoration: BoxDecoration(),
+                            child: Image.asset("assets/images/zuiNAYUSDS.png"),
+                          ),
+                        ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 12),
+                    child: Text(
+                      pazir.patralikaAText,
                       style: TextStyle(
                         fontFamily: 'Raleway',
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(5, 3, 19, 1),
+                        color: Color.fromRGBO(5, 3, 19, .4),
                       ),
                     ),
-                    Spacer(),
-                    Container(
-                      width: 40,
-                      height: 24,
-                      decoration: BoxDecoration(),
-                      child: Image.asset("assets/images/zuiNAYUSDS.png"),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 156,
+                        height: 156,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(pazir.chhaviAImg),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        alignment: Alignment.center,
+                        child: Container(
+                          width: 24,
+                          height: 24,
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(255, 255, 255, .4),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.play_arrow,
+                            color: Color.fromRGBO(255, 255, 255, 1),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          width: double.infinity,
+                          height: 156,
+                          decoration: BoxDecoration(),
+                          alignment: Alignment.center,
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/xzbASNWQM.png",
+
+                                width: 100,
+                                height: 100,
+                              ),
+                              Image.asset(
+                                pazir.bhavanaAEmoji,
+                                width: 62,
+                                height: 62,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadiusGeometry.only(
+                      bottomLeft: Radius.circular(20),
                     ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8, bottom: 12),
-                  child: Text(
-                    "In the anime, he is the embodiment of bravery and justice, a hero in the hearts of countless...",
-                    style: TextStyle(
-                      fontFamily: 'Raleway',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Color.fromRGBO(5, 3, 19, .4),
+                    child: Container(
+                      height: 64,
+                      color: Color.fromRGBO(235, 240, 245, 1),
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/xnzNIUSP.png",
+                            width: 28,
+                            height: 28,
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            "${FFAppState.instance.tinPRimerTedGetCom(pazir.lekhakAid).length}",
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromRGBO(5, 3, 19, .4),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 156,
-                      height: 156,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/Pazir.png"),
-                        ),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
+                SizedBox(width: 1),
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadiusGeometry.only(
+                      bottomRight: Radius.circular(20),
+                    ),
+                    child: Container(
+                      height: 64,
+                      color: Color.fromRGBO(235, 240, 245, 1),
                       alignment: Alignment.center,
-                      child: Container(
-                        width: 24,
-                        height: 24,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(255, 255, 255, .4),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.play_arrow,
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                        ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            pazir.prasanshaAUid.contains(
+                                  FFAppState.instance.flexionLogUid,
+                                )
+                                ? "assets/images/xzncuiqANSUDQA.png"
+                                : "assets/images/fjquNXCUWQB.png",
+                            width: 28,
+                            height: 28,
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            "${pazir.atscioushCount + pazir.prasanshaAUid.length}",
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromRGBO(5, 3, 19, .4),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Expanded(
-                      child: Container(
-                        width: double.infinity,
-                        height: 156,
-                        decoration: BoxDecoration(),
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          "assets/images/iuwSNCUBQ1.png",
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadiusGeometry.only(
-                    bottomLeft: Radius.circular(20),
-                  ),
-                  child: Container(
-                    height: 64,
-                    color: Color.fromRGBO(235, 240, 245, 1),
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/images/xnzNIUSP.png",
-                          width: 28,
-                          height: 28,
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          "99",
-                          style: TextStyle(
-                            fontFamily: 'Raleway',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(5, 3, 19, .4),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(width: 1),
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadiusGeometry.only(
-                    bottomRight: Radius.circular(20),
-                  ),
-                  child: Container(
-                    height: 64,
-                    color: Color.fromRGBO(235, 240, 245, 1),
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/images/xzncuiqANSUDQA.png",
-                          width: 28,
-                          height: 28,
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          "99",
-                          style: TextStyle(
-                            fontFamily: 'Raleway',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(5, 3, 19, .4),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

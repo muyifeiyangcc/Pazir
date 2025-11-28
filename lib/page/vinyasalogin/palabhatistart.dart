@@ -1,5 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pazir/backend/dvaitairtanui.dart';
+import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/samadhihome/pranaajnashou.dart';
+import 'package:pazir/page/vinyasalogin/lomvlharalogin.dart';
+import 'package:pazir/page/vinyasalogin/microadyscanv.dart';
 
 class PalabhAtiStart extends StatefulWidget {
   const PalabhAtiStart({super.key});
@@ -9,9 +15,12 @@ class PalabhAtiStart extends StatefulWidget {
 }
 
 class _PalabhAtiStart extends State<PalabhAtiStart> {
-  bool _striKAdra = false;
+  bool _striKAdra = true;
   @override
   void initState() {
+   
+
+    FFAppState.instance.flexionLogUid = -1;
     super.initState();
   }
 
@@ -84,41 +93,47 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        PhysicalModel(
-                          color: Colors.transparent,
-                          elevation: 0,
-                          borderRadius: BorderRadius.circular(45),
-                          child: Container(
-                            width: 297,
-                            height: 68,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: const Color(0xFF1E7EE6),
-                              ),
-                              borderRadius: BorderRadius.circular(45),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color.fromRGBO(30, 126, 230, 1),
-                                      Color.fromRGBO(184, 218, 255, 1),
-                                    ],
-                                    begin: Alignment(-1, 0),
-                                    end: Alignment(1, 0),
-                                  ),
-                                  borderRadius: BorderRadius.circular(45),
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            Get.to(LomvlHaraLogin());
+                          },
+                          child: PhysicalModel(
+                            color: Colors.transparent,
+                            elevation: 0,
+                            borderRadius: BorderRadius.circular(45),
+                            child: Container(
+                              width: 297,
+                              height: 68,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: const Color(0xFF1E7EE6),
                                 ),
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Text(
-                                  "Login by email",
-                                  style: TextStyle(
-                                    fontFamily: 'NotoSans',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                borderRadius: BorderRadius.circular(45),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color.fromRGBO(30, 126, 230, 1),
+                                        Color.fromRGBO(184, 218, 255, 1),
+                                      ],
+                                      begin: Alignment(-1, 0),
+                                      end: Alignment(1, 0),
+                                    ),
+                                    borderRadius: BorderRadius.circular(45),
+                                  ),
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Text(
+                                    "Login by email",
+                                    style: TextStyle(
+                                      fontFamily: 'NotoSans',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700,
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -126,41 +141,51 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
                           ),
                         ),
                         Container(height: 12),
-                        PhysicalModel(
-                          color: Colors.transparent,
-                          elevation: 0,
-                          borderRadius: BorderRadius.circular(45),
-                          child: Container(
-                            width: 297,
-                            height: 68,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: const Color(0xFF1E7EE6),
-                              ),
-                              borderRadius: BorderRadius.circular(45),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color.fromRGBO(30, 126, 230, 1),
-                                      Color.fromRGBO(184, 218, 255, 1),
-                                    ],
-                                    begin: Alignment(-1, 0),
-                                    end: Alignment(1, 0),
-                                  ),
-                                  borderRadius: BorderRadius.circular(45),
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () async {
+                            await sereneFluxInvoker();
+
+                            FFAppState.instance.flexionLogUid = 7;
+
+                            Get.to(PranaAjnaShou());
+                          },
+                          child: PhysicalModel(
+                            color: Colors.transparent,
+                            elevation: 0,
+                            borderRadius: BorderRadius.circular(45),
+                            child: Container(
+                              width: 297,
+                              height: 68,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: const Color(0xFF1E7EE6),
                                 ),
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Text(
-                                  "I'm new",
-                                  style: TextStyle(
-                                    fontFamily: 'NotoSans',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                borderRadius: BorderRadius.circular(45),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color.fromRGBO(30, 126, 230, 1),
+                                        Color.fromRGBO(184, 218, 255, 1),
+                                      ],
+                                      begin: Alignment(-1, 0),
+                                      end: Alignment(1, 0),
+                                    ),
+                                    borderRadius: BorderRadius.circular(45),
+                                  ),
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Text(
+                                    "I'm new",
+                                    style: TextStyle(
+                                      fontFamily: 'NotoSans',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700,
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -205,7 +230,14 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                         recognizer: TapGestureRecognizer()
-                                          ..onTap = () {},
+                                          ..onTap = () {
+                                            Get.to(
+                                              MicroAdyScanv(
+                                                shUnYHiran:
+                                                    'https://app.gy69o8ub.link/users',
+                                              ),
+                                            );
+                                          },
                                       ),
                                       TextSpan(text: " and "),
                                       TextSpan(
@@ -220,7 +252,14 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                         recognizer: TapGestureRecognizer()
-                                          ..onTap = () {},
+                                          ..onTap = () {
+                                            Get.to(
+                                              MicroAdyScanv(
+                                                shUnYHiran:
+                                                    'https://app.gy69o8ub.link/privacy',
+                                              ),
+                                            );
+                                          },
                                       ),
                                     ],
                                   ),

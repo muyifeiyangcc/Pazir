@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pazir/backend/dvaitairtanui.dart';
+import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/chinmudrayul/niyasdaliniyul.dart';
+import 'package:pazir/page/chinmudrayul/preagnichuang.dart';
 
 class RajasSaiRoom extends StatefulWidget {
   const RajasSaiRoom({super.key});
@@ -6,8 +11,6 @@ class RajasSaiRoom extends StatefulWidget {
   @override
   State<RajasSaiRoom> createState() => _RajasSaiRoom();
 }
-
-
 
 class _RajasSaiRoom extends State<RajasSaiRoom> {
   @override
@@ -67,64 +70,70 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
                               ),
                             ),
 
-                            PhysicalModel(
-                              color: Colors.transparent,
-                              elevation: 0,
-                              borderRadius: BorderRadius.circular(45),
-                              child: Container(
-                                width: 124,
-                                height: 42,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: const Color(0xFF1E7EE6),
-                                  ),
-                                  borderRadius: BorderRadius.circular(45),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color.fromRGBO(30, 126, 230, 1),
-                                          Color.fromRGBO(184, 218, 255, 1),
-                                        ],
-                                        begin: Alignment(-1, 0),
-                                        end: Alignment(1, 0),
-                                      ),
-                                      borderRadius: BorderRadius.circular(45),
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                Get.to(PreAgniChuang());
+                              },
+                              child: PhysicalModel(
+                                color: Colors.transparent,
+                                elevation: 0,
+                                borderRadius: BorderRadius.circular(45),
+                                child: Container(
+                                  width: 124,
+                                  height: 42,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: const Color(0xFF1E7EE6),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.add,
-                                          color: Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                          size: 36,
+                                    borderRadius: BorderRadius.circular(45),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromRGBO(30, 126, 230, 1),
+                                            Color.fromRGBO(184, 218, 255, 1),
+                                          ],
+                                          begin: Alignment(-1, 0),
+                                          end: Alignment(1, 0),
                                         ),
-                                        SizedBox(width: 8),
-                                        Text(
-                                          "Create",
-                                          style: TextStyle(
-                                            fontFamily: 'NotoSans',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
+                                        borderRadius: BorderRadius.circular(45),
+                                      ),
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.add,
                                             color: Color.fromRGBO(
                                               255,
                                               255,
                                               255,
                                               1,
                                             ),
+                                            size: 36,
                                           ),
-                                        ),
-                                      ],
+                                          SizedBox(width: 8),
+                                          Text(
+                                            "Create",
+                                            style: TextStyle(
+                                              fontFamily: 'NotoSans',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -174,11 +183,37 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Wrap(
-                                        runSpacing: 12,
-                                        children: ["1", "2", "3"]
-                                            .map((pazir) => _apaRigrAha(pazir))
-                                            .toList(),
+                                      Builder(
+                                        builder: (context) {
+                                          final pETanArlCh = FFAppState
+                                              .instance
+                                              .zazImeAllChats
+                                              .where(
+                                                (pazir) =>
+                                                    pazir.falOTioncIs == true
+                                                    &&!FFAppState
+                                                            .instance
+                                                            .dingingGetUser(
+                                                              FFAppState
+                                                                  .instance
+                                                                  .flexionLogUid,
+                                                            )!.relations.easingUBlock.contains(pazir.cheMIcalerUsers[0])
+
+                                              )
+                                              .toList();
+                                          return Wrap(
+                                            runSpacing: 12,
+                                            children: pETanArlCh
+                                                .map(
+                                                  (pazir) => _apaRigrAha(pazir),
+                                                )
+                                                .toList(),
+                                          );
+                                        },
+                                      ),
+                                      DecoratedBox(
+                                        decoration: BoxDecoration(),
+                                        child: Container(height: 121),
                                       ),
                                     ],
                                   ),
@@ -193,6 +228,7 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
                 ],
               ),
             ),
+            diviUNityneXia(),
           ],
         ),
       ),
@@ -200,31 +236,43 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
   }
 
   Widget _apaRigrAha(pazir) {
-    return Container(
-      width: double.infinity,
-      height: 266,
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(255, 255, 255, 1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Flex(
-        direction: Axis.vertical,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Container(
-              width: double.infinity,
-              height: 196,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/iuuhuiWIUBFB.png"),
-                  fit: BoxFit.cover,
+    final pufOPXaneUs = FFAppState.instance.dingingGetUser(
+      pazir.cheMIcalerUsers[0],
+    );
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        Get.to(NiyasdAliniYul(gizintonCh: pazir))?.then((_){
+          setState(() {
+            
+          });
+        });
+      },
+      child: Container(
+        width: double.infinity,
+        height: 266,
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(255, 255, 255, 1),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Flex(
+          direction: Axis.vertical,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: Container(
+                width: double.infinity,
+                height: 196,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(pazir.scROffubCover),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                   Align(
+                child: Stack(
+                  children: [
+                    Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
                         width: double.infinity,
@@ -242,237 +290,229 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
                         ),
                       ),
                     ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, bottom: 10),
-                    child: Flex(
-                      direction: Axis.vertical,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 85,
-                              height: 32,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(51, 46, 46, .3),
-                                borderRadius: BorderRadius.circular(32),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                    
-                                children: [
-                                  Image(
-                                    image: AssetImage(
-                                      "assets/images/zkxXCNQUWY.png",
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, bottom: 10),
+                      child: Flex(
+                        direction: Axis.vertical,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: 85,
+                                height: 32,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(51, 46, 46, .3),
+                                  borderRadius: BorderRadius.circular(32),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+
+                                  children: [
+                                    Image(
+                                      image: AssetImage(
+                                        "assets/images/zkxXCNQUWY.png",
+                                      ),
+                                      width: 16.6,
+                                      height: 12.5,
                                     ),
-                                    width: 16.6,
-                                    height: 12.5,
-                                  ),
-                                  SizedBox(width: 8),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 5),
-                                    child: Text(
-                                      "999",
-                                      style: TextStyle(
-                                        fontFamily: 'Raleway',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                    SizedBox(width: 8),
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom: 5),
+                                      child: Text(
+                                        "${pazir.masBOosterKs}",
+                                        style: TextStyle(
+                                          fontFamily: 'Raleway',
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color.fromRGBO(
+                                            255,
+                                            255,
+                                            255,
+                                            1,
+                                          ),
+                                        ),
                                       ),
                                     ),
+                                    SizedBox(width: 12),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 8),
+                              Container(
+                                width: 85,
+                                height: 32,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(51, 46, 46, .3),
+                                  borderRadius: BorderRadius.circular(32),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+
+                                  children: [
+                                    Image(
+                                      image: AssetImage(
+                                        "assets/images/nxzuQNIUASR.png",
+                                      ),
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                    SizedBox(width: 8),
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom: 5),
+                                      child: Text(
+                                        "${pazir.cheMIcalerUsers.length}",
+                                        style: TextStyle(
+                                          fontFamily: 'Raleway',
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color.fromRGBO(
+                                            255,
+                                            255,
+                                            255,
+                                            1,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            pazir.spFOlianfWa,
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromRGBO(255, 255, 255, .7),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+              child: Row(
+                children: [
+                  PhysicalModel(
+                    color: Colors.transparent,
+                    elevation: 0,
+                    borderRadius: BorderRadius.circular(45),
+                    child: Container(
+                      width: 32,
+                      height: 32,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: const Color(0xFF1E7EE6)),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromRGBO(30, 126, 230, 1),
+                                Color.fromRGBO(184, 218, 255, 1),
+                              ],
+                              begin: Alignment(-1, 0),
+                              end: Alignment(1, 0),
+                            ),
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: AssetImage(pufOPXaneUs!.idanadiUAvatar),
+                            ),
+                          ),
+                          alignment: AlignmentDirectional(0, 0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 11),
+                  Text(
+                    pufOPXaneUs.vivekaUName,
+                    style: TextStyle(
+                      fontFamily: 'Raleway',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Color.fromRGBO(5, 3, 19, 1),
+                    ),
+                  ),
+                  Spacer(),
+                  PhysicalModel(
+                    color: Colors.transparent,
+                    elevation: 0,
+                    borderRadius: BorderRadius.circular(45),
+                    child: Container(
+                      width: 100,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color.fromRGBO(255, 255, 255, 1),
+                        ),
+                        borderRadius: BorderRadius.circular(45),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromRGBO(30, 126, 230, 1),
+                              Color.fromRGBO(184, 218, 255, 1),
+                            ],
+                            begin: Alignment(-1, 0),
+                            end: Alignment(1, 0),
+                          ),
+                          borderRadius: BorderRadius.circular(45),
+                        ),
+
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Container(
+                                width: 48,
+                                height: 36,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(26),
+                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                ),
+                                alignment: Alignment.center,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(11.0),
+                                  child: Image(
+                                    image: AssetImage(
+                                      "assets/images/chiuqwNSIFQR.png",
+                                    ),
                                   ),
-                                  SizedBox(width: 12),
-                                ],
+                                ),
                               ),
                             ),
-                            SizedBox(width: 8),
-                            Container(
-                              width: 85,
-                              height: 32,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(51, 46, 46, .3),
-                                borderRadius: BorderRadius.circular(32),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                    
-                                children: [
-                                  Image(
-                                    image: AssetImage(
-                                      "assets/images/zkxXCNQUWY.png",
-                                    ),
-                                    width: 16.6,
-                                    height: 12.5,
-                                  ),
-                                  SizedBox(width: 8),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 5),
-                                    child: Text(
-                                      "999",
-                                      style: TextStyle(
-                                        fontFamily: 'Raleway',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                            Text(
+                              "  GO",
+                              style: TextStyle(
+                                fontFamily: 'NotoSans',
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Color.fromRGBO(255, 255, 255, 1),
                               ),
                             ),
                           ],
                         ),
-                        Text(
-                          "Correction of common yoga breathing misconceptions ...",
-                          style: TextStyle(
-                            fontFamily: 'Raleway',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(255, 255, 255, .7),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
-                child: Row(
-                    children: [
-                      PhysicalModel(
-                        color: Colors.transparent,
-                        elevation: 0,
-                        borderRadius: BorderRadius.circular(45),
-                        child: Container(
-                          width: 32,
-                          height: 32,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: const Color(0xFF1E7EE6)),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color.fromRGBO(30, 126, 230, 1),
-                                    Color.fromRGBO(184, 218, 255, 1),
-                                  ],
-                                  begin: Alignment(-1, 0),
-                                  end: Alignment(1, 0),
-                                ),
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/Pazir.png"),
-                                ),
-                              ),
-                              alignment: AlignmentDirectional(0, 0),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 11),
-                      Text(
-                        "Apisai Sloan",
-                        style: TextStyle(
-                          fontFamily: 'Raleway',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: Color.fromRGBO(5, 3, 19, 1),
-                        ),
-                      ),
-                      Spacer(),
-                      PhysicalModel(
-                                  color: Colors.transparent,
-                                  elevation: 0,
-                                  borderRadius: BorderRadius.circular(45),
-                                  child: Container(
-                                    width: 100,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color.fromRGBO(
-                                          255,
-                                          255,
-                                          255,
-                                          1,
-                                        ),
-                                      ),
-                                      borderRadius: BorderRadius.circular(45),
-                                    ),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color.fromRGBO(30, 126, 230, 1),
-                                            Color.fromRGBO(184, 218, 255, 1),
-                                          ],
-                                          begin: Alignment(-1, 0),
-                                          end: Alignment(1, 0),
-                                        ),
-                                        borderRadius: BorderRadius.circular(45),
-                                      ),
-
-                                      child: Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(1.0),
-                                            child: Container(
-                                              width: 48,
-                                              height: 36,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(26),
-                                                color: Color.fromRGBO(
-                                                  255,
-                                                  255,
-                                                  255,
-                                                  1,
-                                                ),
-                                              ),
-                                              alignment: Alignment.center,
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(
-                                                  11.0,
-                                                ),
-                                                child: Image(
-                                                  image: AssetImage(
-                                                    "assets/images/chiuqwNSIFQR.png",
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Text(
-                                            "  GO",
-                                            style: TextStyle(
-                                              fontFamily: 'NotoSans',
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color.fromRGBO(
-                                                255,
-                                                255,
-                                                255,
-                                                1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                    ],
-                  ),
-              ),
-
-
-        ],
+          ],
+        ),
       ),
     );
   }

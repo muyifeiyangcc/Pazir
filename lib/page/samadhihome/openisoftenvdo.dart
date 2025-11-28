@@ -1,30 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:loading_indicator/loading_indicator.dart';
+import 'package:pazir/backend/prakritiuser.dart';
+import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/manipuramine/twistflowreport.dart';
+import 'package:pazir/page/samadhihome/kirtdhisthcomment.dart';
+import 'package:video_player/video_player.dart';
 
 class OpeniSofteNvdo extends StatefulWidget {
-  const OpeniSofteNvdo({super.key});
+  const OpeniSofteNvdo({
+    super.key,
+    required this.equAThWoAid,
+    required this.asGTaUse,
+    required this.deSPiralLep,
+  });
+
+  final int equAThWoAid;
+  final RootingUsers asGTaUse;
+  final String deSPiralLep;
 
   @override
   State<OpeniSofteNvdo> createState() => _OpeniSofteNvdo();
 }
 
 class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
+  late VideoPlayerController _anGEntlEic;
+  bool _hinFINiTet = false;
+
+  String _shiBReFt = "1";
   @override
   void initState() {
     super.initState();
+
+    _anGEntlEic = VideoPlayerController.asset(widget.deSPiralLep)
+      ..initialize().then((_) {
+        _anGEntlEic
+          ..setLooping(true)
+          ..play();
+        _hinFINiTet = true;
+        setState(() {});
+      });
   }
 
   @override
   void dispose() {
+    _anGEntlEic.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final thEArtHa = FFAppState.instance.minshiftGetArt(widget.equAThWoAid);
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        FocusScope.of(context).unfocus();
+        if (_shiBReFt == "1") {
+          _anGEntlEic.pause();
+          _shiBReFt = "2";
+        } else {
+          _anGEntlEic.play();
+          _shiBReFt = "1";
+        }
+        setState(() {});
       },
       child: Container(
         width: double.infinity,
@@ -41,10 +78,42 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
         ),
         child: Stack(
           children: [
+            !_hinFINiTet
+                ? Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: LoadingIndicator(
+                        indicatorType: Indicator.lineSpinFadeLoader,
+                        colors: const [Colors.white],
+                        strokeWidth: 2,
+                      ),
+                    ),
+                  )
+                : VideoPlayer(_anGEntlEic),
             Scaffold(
               backgroundColor: Color.fromRGBO(0, 0, 0, 0),
               body: Stack(
                 children: [
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: double.infinity,
+                      height: 300,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromRGBO(0, 0, 0, 0),
+                            Color.fromRGBO(0, 0, 0, 0.15),
+                          ],
+                          begin: Alignment(0, -1),
+                          end: Alignment(0, 1),
+                        ),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                  ),
                   Column(
                     children: [
                       Padding(
@@ -68,20 +137,30 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: Image.asset(
-                                    "assets/images/cjNVUISAB.png",
+                                    "assets/images/nxuiNCUIQWB.png",
                                   ),
                                 ),
                               ),
                             ),
-
-                            SizedBox(
-                              width: 40,
-                              height: 40,
-                              child: Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Image(
-                                  image: AssetImage(
-                                    "assets/images/ajihcNXCUIS.png",
+                            if(widget.asGTaUse.sukhabUid!=FFAppState.instance.flexionLogUid)
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                Get.dialog(
+                                  TwistfLowReport(
+                                    lumIAnatUid: widget.asGTaUse.sukhabUid,
+                                  ),
+                                );
+                              },
+                              child: SizedBox(
+                                width: 40,
+                                height: 40,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Image(
+                                    image: AssetImage(
+                                      "assets/images/ajihcNXCUIS.png",
+                                    ),
                                   ),
                                 ),
                               ),
@@ -93,23 +172,24 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                       Expanded(
                         child: Stack(
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, -0.15),
-                              child: Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(255, 255, 255, .4),
-                                  shape: BoxShape.circle,
-                                ),
-                                alignment: Alignment.center,
-                                child: Icon(
-                                  Icons.play_arrow,
-                                  color: Color.fromRGBO(255, 255, 255, 1),
-                                  size: 40,
+                            if (_shiBReFt == "2")
+                              Align(
+                                alignment: AlignmentDirectional(0, -0.15),
+                                child: Container(
+                                  width: 60,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(255, 255, 255, .4),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Icon(
+                                    Icons.play_arrow,
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    size: 40,
+                                  ),
                                 ),
                               ),
-                            ),
 
                             Align(
                               alignment: Alignment.bottomCenter,
@@ -119,6 +199,7 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
                                       children: [
@@ -164,7 +245,9 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                                   shape: BoxShape.circle,
                                                   image: DecorationImage(
                                                     image: AssetImage(
-                                                      "assets/images/Pazir.png",
+                                                      widget
+                                                          .asGTaUse
+                                                          .idanadiUAvatar,
                                                     ),
                                                   ),
                                                 ),
@@ -178,7 +261,7 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                         ),
                                         SizedBox(width: 11),
                                         Text(
-                                          "Apisai Sloan",
+                                          widget.asGTaUse.vivekaUName,
                                           style: TextStyle(
                                             fontFamily: 'Raleway',
                                             fontSize: 14,
@@ -199,7 +282,7 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                         bottom: 12,
                                       ),
                                       child: Text(
-                                        "In the anime, he is the embodiment of bravery and justice, a hero in the hearts of countless...",
+                                        thEArtHa!.patralikaAText,
                                         style: TextStyle(
                                           fontFamily: 'Raleway',
                                           fontSize: 14,
@@ -216,110 +299,156 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
 
                                     Row(
                                       children: [
-                                        Image(
-                                          image: AssetImage(
-                                            "assets/images/iuwSNCUBQ1.png",
-                                          ),
-                                          width: 60,
-                                          height: 60,
+                                        Stack(
+                                          alignment: Alignment.center,
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/xzbASNWQM.png",
+
+                                              width: 60,
+                                              height: 60,
+                                            ),
+                                            Image.asset(
+                                              thEArtHa.bhavanaAEmoji!,
+                                              width: 37,
+                                              height: 37,
+                                            ),
+                                          ],
                                         ),
                                         SizedBox(width: 12),
                                         Expanded(
                                           child: Row(
                                             children: [
                                               Expanded(
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadiusGeometry.circular(
-                                                        24,
+                                                child: GestureDetector(
+                                                  behavior: HitTestBehavior
+                                                      .translucent,
+                                                  onTap: () {
+                                                    Get.bottomSheet(
+                                                      KirtdhiSthComment(
+                                                        ugaMAskrAid:
+                                                            widget.equAThWoAid,
                                                       ),
-                                                  child: Container(
-                                                    height: 64,
-                                                    color: Color.fromRGBO(
-                                                      235,
-                                                      240,
-                                                      245,
-                                                      1,
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Image.asset(
-                                                          "assets/images/xnzNIUSP.png",
-                                                          width: 28,
-                                                          height: 28,
+                                                    );
+                                                  },
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadiusGeometry.circular(
+                                                          24,
                                                         ),
-                                                        SizedBox(width: 5),
-                                                        Text(
-                                                          "99",
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Raleway',
-                                                            fontSize: 14,
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                  5,
-                                                                  3,
-                                                                  19,
-                                                                  .4,
-                                                                ),
+                                                    child: Container(
+                                                      height: 64,
+                                                      color: Color.fromRGBO(
+                                                        255,
+                                                        255,
+                                                        255,
+                                                        .2,
+                                                      ),
+                                                      alignment:
+                                                          Alignment.center,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Image.asset(
+                                                            "assets/images/wqsaXZCIa.png",
+                                                            width: 28,
+                                                            height: 28,
                                                           ),
-                                                        ),
-                                                      ],
+                                                          SizedBox(width: 5),
+                                                          Text(
+                                                            "${FFAppState.instance.tinPRimerTedGetCom(widget.equAThWoAid).length}",
+                                                            style: TextStyle(
+                                                              fontFamily:
+                                                                  'Raleway',
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                              color:
+                                                                  Color.fromRGBO(
+                                                                    5,
+                                                                    3,
+                                                                    19,
+                                                                    .4,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                               SizedBox(width: 8),
                                               Expanded(
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadiusGeometry.circular(
-                                                        24,
+                                                child: GestureDetector(
+                                                  behavior: HitTestBehavior
+                                                      .translucent,
+                                                  onTap: () async {
+                                                    await FFAppState.instance
+                                                        .eatfLUiDhArt(
+                                                          widget.equAThWoAid,
+                                                          FFAppState
+                                                              .instance
+                                                              .flexionLogUid,
+                                                        );
+                                                    setState(() {});
+                                                  },
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadiusGeometry.circular(
+                                                          24,
+                                                        ),
+                                                    child: Container(
+                                                      height: 64,
+                                                      color: Color.fromRGBO(
+                                                        255,
+                                                        255,
+                                                        255,
+                                                        .2,
                                                       ),
-                                                  child: Container(
-                                                    height: 64,
-                                                    color: Color.fromRGBO(
-                                                      235,
-                                                      240,
-                                                      245,
-                                                      1,
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Image.asset(
-                                                          "assets/images/xzncuiqANSUDQA.png",
-                                                          width: 28,
-                                                          height: 28,
-                                                        ),
-                                                        SizedBox(width: 5),
-                                                        Text(
-                                                          "99",
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Raleway',
-                                                            fontSize: 14,
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                  5,
-                                                                  3,
-                                                                  19,
-                                                                  .4,
-                                                                ),
+                                                      alignment:
+                                                          Alignment.center,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Image.asset(
+                                                            thEArtHa.prasanshaAUid
+                                                                    .contains(
+                                                                      FFAppState
+                                                                          .instance
+                                                                          .flexionLogUid,
+                                                                    )
+                                                                ? "assets/images/xzncuiqANSUDQA.png"
+                                                                : "assets/images/fjquNXCUWQB.png",
+                                                            width: 28,
+                                                            height: 28,
                                                           ),
-                                                        ),
-                                                      ],
+                                                          SizedBox(width: 5),
+                                                          Text(
+                                                            "${thEArtHa.atscioushCount + thEArtHa.prasanshaAUid.length}",
+                                                            style: TextStyle(
+                                                              fontFamily:
+                                                                  'Raleway',
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                              color:
+                                                                  Color.fromRGBO(
+                                                                    5,
+                                                                    3,
+                                                                    19,
+                                                                    .4,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
                                                 ),

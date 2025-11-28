@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pazir/backend/flotwistingood.dart';
+import 'package:pazir/backend/softenembod.dart';
 
 class AhimsTeyaGold extends StatefulWidget {
   const AhimsTeyaGold({super.key});
@@ -9,14 +11,19 @@ class AhimsTeyaGold extends StatefulWidget {
 }
 
 class _AhimsTeyaGold extends State<AhimsTeyaGold> {
+  FlotwIStinGood flotwIStinGood = FlotwIStinGood();
   @override
   void initState() {
     super.initState();
+    flotwIStinGood.inItiaLizePyrChaSeFlOw();
+
+    flotwIStinGood.kabHAviCa = () => setState(() {});
   }
 
   @override
   void dispose() {
     super.dispose();
+    flotwIStinGood.onClose();
   }
 
   @override
@@ -122,9 +129,9 @@ class _AhimsTeyaGold extends State<AhimsTeyaGold> {
                                             width: 71,
                                             height: 59,
                                           ),
-                                          SizedBox(width: 10),
+                                          SizedBox(width: 20),
                                           Text(
-                                            "999090",
+                                            "${FFAppState.instance.dingingGetUser(FFAppState.instance.flexionLogUid)!.relations.stillsUGood}",
                                             style: TextStyle(
                                               fontFamily: 'NotoSans',
                                               fontSize: 36,
@@ -152,19 +159,27 @@ class _AhimsTeyaGold extends State<AhimsTeyaGold> {
                                 ),
                               ),
                             ),
-
-                            GridView.count(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 12,
-                              crossAxisSpacing: 19,
-                              childAspectRatio: 162 / 98,
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              children: [
-                                "1",
-                                "2",
-                                "3",
-                              ].map((pazir) => _anaTpas(pazir)).toList(),
+                            DecoratedBox(
+                              decoration: BoxDecoration(),
+                              child: Container(height: 20),
+                            ),
+                            Builder(
+                              builder: (context) {
+                                final otaTIonList =
+                                    FFAppState.instance.viloMaHatiGo;
+                                return GridView.count(
+                                  padding: EdgeInsets.all(0),
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 12,
+                                  crossAxisSpacing: 19,
+                                  childAspectRatio: 162 / 98,
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  children: otaTIonList
+                                      .map((pazir) => _anaTpas(pazir))
+                                      .toList(),
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -181,64 +196,70 @@ class _AhimsTeyaGold extends State<AhimsTeyaGold> {
   }
 
   Widget _anaTpas(pazir) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(235, 240, 245, 1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Flex(
-        direction: Axis.vertical,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "400",
-            style: TextStyle(
-              fontFamily: 'NotoSans',
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-              color: Color.fromRGBO(5, 3, 19, 1),
-            ),
-          ),
-          PhysicalModel(
-            color: Colors.transparent,
-            elevation: 0,
-            borderRadius: BorderRadius.circular(45),
-            child: Container(
-              width: 76,
-              height: 34,
-              decoration: BoxDecoration(
-                border: Border.all(color: const Color(0xFF1E7EE6)),
-                borderRadius: BorderRadius.circular(45),
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () async {
+        await flotwIStinGood.inVokEPrOduCtReq(pazir["breWStatEKey"]);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(235, 240, 245, 1),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Flex(
+          direction: Axis.vertical,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "${pazir["adbRAnICount"]}",
+              style: TextStyle(
+                fontFamily: 'NotoSans',
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: Color.fromRGBO(5, 3, 19, 1),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color.fromRGBO(30, 126, 230, 1),
-                        Color.fromRGBO(184, 218, 255, 1),
-                      ],
-                      begin: Alignment(-1, 0),
-                      end: Alignment(1, 0),
+            ),
+            PhysicalModel(
+              color: Colors.transparent,
+              elevation: 0,
+              borderRadius: BorderRadius.circular(45),
+              child: Container(
+                width: 76,
+                height: 34,
+                decoration: BoxDecoration(
+                  border: Border.all(color: const Color(0xFF1E7EE6)),
+                  borderRadius: BorderRadius.circular(45),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromRGBO(30, 126, 230, 1),
+                          Color.fromRGBO(184, 218, 255, 1),
+                        ],
+                        begin: Alignment(-1, 0),
+                        end: Alignment(1, 0),
+                      ),
+                      borderRadius: BorderRadius.circular(45),
                     ),
-                    borderRadius: BorderRadius.circular(45),
-                  ),
-                  alignment: AlignmentDirectional(0, 0),
-                  child: Text(
-                    "\$0.99",
-                    style: TextStyle(
-                      fontFamily: 'NotoSans',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Color.fromRGBO(255, 255, 255, 1),
+                    alignment: AlignmentDirectional(0, 0),
+                    child: Text(
+                      "\$${pazir["tiInGoMon"]}",
+                      style: TextStyle(
+                        fontFamily: 'NotoSans',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

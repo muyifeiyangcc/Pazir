@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pazir/page/manipuramine/bhaktiantradiao.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/samadhihome/pranaajnashou.dart';
+import 'package:pazir/page/vinyasalogin/palabhatistart.dart';
 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
+  await FFAppState.instance.init();
 
-
-
-
-void main() {
   runApp(const MainApp());
 }
 
@@ -15,11 +19,15 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    return GetMaterialApp(
+      builder: FlutterSmartDialog.init(),
       home: Scaffold(
         backgroundColor: Colors.black,
-        body: BhaktiAntraDiao()),
-     
+        body: FFAppState.instance.flexionLogUid == -1
+            ? PalabhAtiStart()
+            : PranaAjnaShou(),
+      ),
     );
   }
 }
