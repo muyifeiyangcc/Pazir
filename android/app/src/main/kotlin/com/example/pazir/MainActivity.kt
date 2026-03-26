@@ -1,4 +1,4 @@
-package com.bliques.pazir
+package com.pazir.par
 
 import io.flutter.embedding.android.FlutterActivity
 
