@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250699914732",
+    "project_id": "cose-wsbdy2",
+    "storage_bucket": "cose-wsbdy2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250699914732:android:17b86c09c889a4f03674c9",
+        "android_client_info": {
+          "package_name": "com.pazia.aozlida"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW_rzubC0EVjcmtKC6cpWpzZ2PLJJvlxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 name: pazir
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -13,7 +13,7 @@ dependencies:
   flutter_inappwebview: 6.1.5
   file_picker: 10.3.7
   permission_handler: 12.0.1
-  video_thumbnail: 0.5.3
+  video_thumbnail: 0.5.6
   path_provider: 2.1.5
   video_player: 2.10.0
   intl: 0.20.2
@@ -28,7 +28,16 @@ dependencies:
   loading_indicator: 3.1.1
   flutter_launcher_icons: 0.14.4
   flutter_native_splash: 2.4.7
-
+  android_id: ^0.5.1
+  vpn_detector: ^1.3.0
+  devicelocale: ^0.8.2
+  adjust_sdk: ^5.6.2
+  screen_protector: ^1.5.1
+  url_launcher: ^6.3.2
+  loading_animation_widget: ^1.3.0
+  geocoding: ^4.0.0
+  geolocator: ^14.0.2
+  facebook_app_events: ^0.27.2
 
 dev_dependencies:
   flutter_test:
@@ -43,19 +52,17 @@ flutter_launcher_icons:
     generate: true
   image_path: "assets/images/Pazir.png"
 
-flutter_native_splash: 
+flutter_native_splash:
   background_image: "assets/images/nxuiBASDAIUW.png"
 
 flutter:
   uses-material-design: true
 
-
   assets:
     - assets/images/
     - assets/fonts/
     - assets/video/
-    - assets/audio/  
-
+    - assets/audio/
 
   fonts:
     - family: NotoSans
