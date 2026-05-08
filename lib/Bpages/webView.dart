@@ -117,6 +117,10 @@ class _WebviewPageState extends State<WebviewPage> {
                 begin: Alignment(0, -1),
                 end: Alignment(0, 1),
               ),
+              image: DecorationImage(
+                image: AssetImage("assets/images/webviewbg.png"),
+                fit: BoxFit.cover,
+              ),
             ),
             child: Stack(
               children: [
@@ -190,19 +194,35 @@ class _WebviewPageState extends State<WebviewPage> {
                               },
                             );
                             _controller!.addJavaScriptHandler(
-                              handlerName: "openBrowser",
+                              handlerName: 'openBrowser',
                               callback: (args) async {
-                                if (args[0]["type"] == "system") {
-                                  final url = Uri.parse(args[0]["url"]);
-                                  if (!await launchUrl(
+                                bool state = false;
+                                final body = args[0];
+                                String urlStr = body['url'];
+                                final Uri? url = Uri.tryParse(urlStr);
+                                if (url != null) {
+                                  state = await launchUrl(
                                     url,
                                     mode: LaunchMode.externalApplication,
-                                  )) {
-                                    SmartDialog.showToast(
-                                      'Unable to open the browser!',
-                                    );
-                                  }
+                                  );
                                 }
+                                String jsStr =
+                                    "window.dispatchEvent(new CustomEvent('nativeOpenState',{detail:{state:{state},url:{url}}}))";
+
+                                String jsJson = jsStr
+                                    .replaceAll(
+                                      '{state}',
+                                      jsonEncode(state ? 'success' : 'failed'),
+                                    )
+                                    .replaceAll(
+                                      '{url}',
+                                      jsonEncode(url.toString()),
+                                    );
+
+                                await _controller!.evaluateJavascript(
+                                  source: jsJson,
+                                );
+                                return null;
                               },
                             );
                           },
@@ -219,41 +239,31 @@ class _WebviewPageState extends State<WebviewPage> {
                               },
                           shouldOverrideUrlLoading:
                               (controller, navigationAction) async {
-                                var url = navigationAction.request.url!;
-                                if ([
-                                  "phonepe",
-                                  "paytmmp",
-                                  "gpay",
-                                  "com.amazon.mobile.shopping",
-                                  "mobikwik",
-                                  "freecharge",
-                                  "upi",
-                                ].contains(url.scheme)) {
-                                  try {
-                                    await launchUrl(
-                                      url,
-                                      mode: LaunchMode.externalApplication,
-                                    );
-                                  } catch (e) {
-                                    SmartDialog.showToast(
-                                      "No application supporting this payment method was found!",
-                                    );
-                                  }
-                                  return NavigationActionPolicy.CANCEL;
-                                }
-                                if (![
-                                  "http",
-                                  "https",
-                                  "file",
-                                  "chrome",
-                                  "data",
-                                  "javascript",
-                                  "about",
-                                ].contains(url.scheme)) {
+                                final url = navigationAction.request.url!;
+                                bool state = false;
+                                if (_urlIsComment(url.scheme)) {
                                   if (await canLaunchUrl(url)) {
-                                    await launchUrl(url);
-                                    return NavigationActionPolicy.CANCEL;
+                                    state = await launchUrl(url);
                                   }
+                                  String jsStr =
+                                      "window.dispatchEvent(new CustomEvent('nativeOpenState',{detail:{state:{state},url:{url}}}))";
+
+                                  String jsJson = jsStr
+                                      .replaceAll(
+                                        '{state}',
+                                        jsonEncode(
+                                          state ? 'success' : 'failed',
+                                        ),
+                                      )
+                                      .replaceAll(
+                                        '{url}',
+                                        jsonEncode(url.toString()),
+                                      );
+
+                                  await _controller!.evaluateJavascript(
+                                    source: jsJson,
+                                  );
+                                  return NavigationActionPolicy.CANCEL;
                                 }
                                 return NavigationActionPolicy.ALLOW;
                               },
@@ -285,6 +295,14 @@ class _WebviewPageState extends State<WebviewPage> {
         ),
       ),
     );
+  }
+
+  bool _urlIsComment(String url) {
+    final String scheme = url.toLowerCase();
+    return scheme != 'http' &&
+        scheme != 'https' &&
+        scheme != 'file' &&
+        scheme != 'about';
   }
 
   Future<void> recordLoadingTime(int loadingTime) async {

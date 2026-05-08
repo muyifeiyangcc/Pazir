@@ -68,42 +68,13 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
                         begin: Alignment(0, -1),
                         end: Alignment(0, 1),
                       ),
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/nxuiBASDAIUW.png"),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     child: Stack(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 150),
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Container(
-                              width: 100,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(24),
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/Pazir.png"),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(top: 260),
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              "PAZIR",
-                              style: TextStyle(
-                                fontFamily: 'NotoSans',
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                                color: Color.fromRGBO(5, 3, 19, 1),
-                              ),
-                            ),
-                          ),
-                        ),
-
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Builder(
