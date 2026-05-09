@@ -238,31 +238,36 @@ class _WebviewPageState extends State<WebviewPage> {
                               },
                           shouldOverrideUrlLoading:
                               (controller, navigationAction) async {
-                                final url = navigationAction.request.url!;
-                                bool state = false;
-                                if (_urlIsComment(url.scheme)) {
-                                  if (await canLaunchUrl(url)) {
-                                    state = await launchUrl(url);
-                                  }
-                                  String jsStr =
-                                      "window.dispatchEvent(new CustomEvent('nativeOpenState',{detail:{state:{state},url:{url}}}))";
-
-                                  String jsJson = jsStr
-                                      .replaceAll(
-                                        '{state}',
-                                        jsonEncode(
-                                          state ? 'success' : 'failed',
-                                        ),
-                                      )
-                                      .replaceAll(
-                                        '{url}',
-                                        jsonEncode(url.toString()),
+                                final url = navigationAction.request.url;
+                                if (url != null) {
+                                  bool state = false;
+                                  if (_urlIsComment(url.scheme)) {
+                                    if (await canLaunchUrl(url)) {
+                                      state = await launchUrl(
+                                        url,
+                                        mode: LaunchMode.externalApplication,
                                       );
+                                    }
+                                    String jsStr =
+                                        "window.dispatchEvent(new CustomEvent('nativeOpenState',{detail:{state:{state},url:{url}}}))";
 
-                                  await _controller!.evaluateJavascript(
-                                    source: jsJson,
-                                  );
-                                  return NavigationActionPolicy.CANCEL;
+                                    String jsJson = jsStr
+                                        .replaceAll(
+                                          '{state}',
+                                          jsonEncode(
+                                            state ? 'success' : 'failed',
+                                          ),
+                                        )
+                                        .replaceAll(
+                                          '{url}',
+                                          jsonEncode(url.toString()),
+                                        );
+
+                                    await _controller!.evaluateJavascript(
+                                      source: jsJson,
+                                    );
+                                    return NavigationActionPolicy.CANCEL;
+                                  }
                                 }
                                 return NavigationActionPolicy.ALLOW;
                               },
