@@ -148,7 +148,6 @@ class FlotwIStinGood {
     double money = FFAppState.instance.viloMaHatiGo.firstWhere(
       (item) => item['breWStatEKey'] == purchase.productID,
     )['tiInGoMon'];
-    print(money);
     await facebookAppEvents.logPurchase(
       amount: money,
       currency: 'USD',
