@@ -8,7 +8,6 @@ import 'package:pazir/page/kundalinichat/kanadiyanai.dart';
 import 'package:pazir/page/manipuramine/sitaliagnisarazhu.dart';
 import 'package:pazir/page/manipuramine/twistflowreport.dart';
 import 'package:pazir/page/samadhihome/ibhaktintegralf.dart';
-import 'package:pazir/page/samadhihome/koshashaktipa.dart';
 import 'package:pazir/page/samadhihome/openisoftenvdo.dart';
 
 class PranaAjnaShou extends StatefulWidget {

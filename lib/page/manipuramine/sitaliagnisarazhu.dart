@@ -2,11 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pazir/backend/atiomentnexchat.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
 import 'package:pazir/backend/softenembod.dart';
-import 'package:pazir/page/kundalinichat/grounnimilia.dart';
-import 'package:pazir/page/manipuramine/ahimsteyagold.dart';
 import 'package:pazir/page/manipuramine/tejaskundalset.dart';
 import 'package:pazir/page/manipuramine/twistflowreport.dart';
 import 'package:pazir/page/samadhihome/openisoftenvdo.dart';
