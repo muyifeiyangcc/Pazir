@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
 import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/kundalinichat/kanadiyanai.dart';
 import 'package:pazir/page/manipuramine/sitaliagnisarazhu.dart';
 import 'package:pazir/page/manipuramine/twistflowreport.dart';
 import 'package:pazir/page/samadhihome/ibhaktintegralf.dart';
@@ -197,7 +198,8 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                 child: GestureDetector(
                                   behavior: HitTestBehavior.translucent,
                                   onTap: () {
-                                    Get.dialog(KoshasHaktiPa());
+                                    // Get.dialog(KoshasHaktiPa());
+                                    Get.to(KanaDiyanAi());
                                   },
                                   child: PhysicalModel(
                                     color: Colors.transparent,
@@ -265,7 +267,7 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                               ),
                                             ),
                                             Text(
-                                              "  UNLOCK WITH",
+                                              "  START WITH",
                                               style: TextStyle(
                                                 fontFamily: 'NotoSans',
                                                 fontSize: 14,
@@ -471,31 +473,36 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                                     .instance
                                                     .zazImeAllArticles
                                                     .where((pazir) {
-
-
-                                                      bool saINgnIs = !FFAppState
-                                                            .instance
-                                                            .dingingGetUser(
-                                                              FFAppState
-                                                                  .instance
-                                                                  .flexionLogUid,
-                                                            )!.relations.easingUBlock.contains(pazir.prakashakAUid);
+                                                      bool
+                                                      saINgnIs = !FFAppState
+                                                          .instance
+                                                          .dingingGetUser(
+                                                            FFAppState
+                                                                .instance
+                                                                .flexionLogUid,
+                                                          )!
+                                                          .relations
+                                                          .easingUBlock
+                                                          .contains(
+                                                            pazir.prakashakAUid,
+                                                          );
                                                       if (lenGTtBoa == 1.0) {
                                                         return saINgnIs;
                                                       } else {
                                                         return FFAppState
-                                                            .instance
-                                                            .dingingGetUser(
-                                                              FFAppState
-                                                                  .instance
-                                                                  .flexionLogUid,
-                                                            )!
-                                                            .relations
-                                                            .vationUFollow
-                                                            .contains(
-                                                              pazir
-                                                                  .prakashakAUid,
-                                                            )&&saINgnIs;
+                                                                .instance
+                                                                .dingingGetUser(
+                                                                  FFAppState
+                                                                      .instance
+                                                                      .flexionLogUid,
+                                                                )!
+                                                                .relations
+                                                                .vationUFollow
+                                                                .contains(
+                                                                  pazir
+                                                                      .prakashakAUid,
+                                                                ) &&
+                                                            saINgnIs;
                                                       }
                                                     });
                                                 if (reaCOrethAr.isEmpty) {
@@ -607,7 +614,7 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                     image: AssetImage(
                                       rhealineUse!.idanadiUAvatar,
                                     ),
-                                    fit: BoxFit.cover
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                                 alignment: AlignmentDirectional(0, 0),

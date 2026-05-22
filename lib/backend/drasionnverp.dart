@@ -1,11 +1,11 @@
 class RootingArticles {
-  final int lekhakAid; // 文章ID
-  final String patralikaAText; // 文案
-  final String? chhaviAImg; // 图片
-  final String? drishyaAVideo; // 视频
-  final int prakashakAUid; // 发布人ID
-  final String? bhavanaAEmoji; // 表情图片
-  final List<int> prasanshaAUid; // 点赞数组（用户ID列表）
+  final int lekhakAid;
+  final String patralikaAText;
+  final String? chhaviAImg;
+  final String? drishyaAVideo;
+  final int prakashakAUid;
+  final String? bhavanaAEmoji;
+  final List<int> prasanshaAUid;
   final int atscioushCount;
 
   RootingArticles({

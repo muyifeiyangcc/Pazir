@@ -9,6 +9,7 @@ import 'package:pazir/Bpages/constData.dart';
 import 'package:pazir/Bpages/dataLongTime.dart';
 import 'package:pazir/Bpages/encrypt.dart';
 import 'package:pazir/Bpages/webView.dart';
+import 'package:pazir/backend/minspiritdenj.dart';
 import 'package:pazir/page/vinyasalogin/palabhatistart.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:screen_protector/screen_protector.dart';
@@ -97,7 +98,6 @@ class _InitpageState extends State<Initpage> {
       String res = resultData['result'];
       final resDecrypt = res.managerDecrypt();
       Map<String, dynamic> data = jsonDecode(resDecrypt);
-      print(data);
       await Datalongtime.setH5Url(data['openValue']);
       constdata.islocation = data['locationFlag'] == 1;
       bool isLoginApp = data['loginFlag'] == 1 && Datalongtime.getToken != '';
@@ -134,7 +134,8 @@ class _InitpageState extends State<Initpage> {
 
 Future<dynamic> getPasswordPost(String password, int type) async {
   return await ApiMethod.post(
-    'http://y5o3p9u7i1t2r4.shop/backtwo/sj/user/selectUpdateUser',
+    '0e250d2a159083fa8fe00f6f7be641a3d7285e2d78fa63c20f7273fc045efbea53d0b5c271a7f42c8f30f8a05a336f6b60039df6bec10e3d1767550bdd0a02e8'
+        .sovoTIonUl(),
     params: {
       'equipmentNo': await Datalongtime.getDeviceNo,
       'password': password,

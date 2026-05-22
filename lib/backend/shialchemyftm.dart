@@ -1,7 +1,7 @@
 class PraniBodieDc {
-  final int inquoBServAid; // 文章ID
-  final int scintEQueUid; // 评论人ID
-  final String suBJeContent; // 内容
+  final int inquoBServAid;
+  final int scintEQueUid;
+  final String suBJeContent;
 
   PraniBodieDc({
     required this.inquoBServAid,

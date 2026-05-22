@@ -9,7 +9,6 @@ extension ManagerString on String {
     encrypt.AES(key, mode: encrypt.AESMode.cbc),
   );
 
-  //加密
   String managerEncode() {
     try {
       final encrypted = encrypter.encrypt(this, iv: iv);
@@ -19,7 +18,6 @@ extension ManagerString on String {
     }
   }
 
-  //解密
   String managerDecrypt() {
     try {
       final encrypted = encrypt.Encrypted(Uint8List.fromList(hex.decode(this)));

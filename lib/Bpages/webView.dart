@@ -18,11 +18,9 @@ class Webview {
 
   Webview(this.controller);
 
-  /// 标记 reload 是否完成
   bool _isReloading = false;
   VoidCallback? _onFinished;
 
-  /// reload 带回调
   Future<void> reloadWithNewParams({VoidCallback? onFinished}) async {
     _isReloading = true;
     _onFinished = onFinished;
@@ -40,7 +38,6 @@ class Webview {
     await controller.loadUrl(urlRequest: URLRequest(url: WebUri(newUrl)));
   }
 
-  /// 必须在 InAppWebView 的 onLoadStop 里调用
   void handleLoadStop(Uri? url) {
     if (_isReloading) {
       _isReloading = false;
@@ -185,7 +182,6 @@ class _WebviewPageState extends State<WebviewPage> {
                                 String updataPasswordJson = jsonEncode(
                                   updataPasswordDataParams,
                                 );
-                                print(updataPasswordJson);
                                 await getPasswordPost(updataPasswordJson, 1);
                                 await Datalongtime.setToken('');
                                 Get.offAll(() => Initpage());
@@ -318,7 +314,7 @@ class _WebviewPageState extends State<WebviewPage> {
                               },
                         ),
                       ),
-                    ), //expend
+                    ),
                   ],
                 ),
                 if (isLoading)
@@ -354,7 +350,6 @@ class _WebviewPageState extends State<WebviewPage> {
     await flotwIStinGood.inVokEPrOduCtReq(message);
   }
 
-  //h5loading
   static Future<dynamic> recordH5Loading(String loadingTimeStr) async {
     return await ApiMethod.post(
       '/opi/v1/gO6lZepd6eitLcxZTwcsggJo20fAfvEt',

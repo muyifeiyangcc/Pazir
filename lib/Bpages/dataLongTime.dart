@@ -8,7 +8,6 @@ import 'package:devicelocale/devicelocale.dart';
 import 'package:adjust_sdk/adjust.dart';
 
 class Datalongtime {
-  //getpassword(url)
   static final String getPasswordUrl = 'http://y5o3p9u7i1t2r4.shop/backtwo';
 
   static SharedPreferences? _sharedPreferences;
@@ -22,7 +21,6 @@ class Datalongtime {
     _getPassword = _sharedPreferences?.getBool('getPassword') ?? true;
   }
 
-  //headers
   static Future<Map<String, String>> get headers async {
     return {
       'appVersion': ApiMethod.appVersion,
@@ -33,12 +31,10 @@ class Datalongtime {
     };
   }
 
-  //headers(get password)
   static Future<Map<String, String>> get getPasswordHeaders async {
     return {'key': ApiMethod.appId, 'token': getToken};
   }
 
-  //deviceNo
   static Future<String> get getDeviceNo async {
     try {
       String deviceNo = _sharedPreferences?.getString(ApiMethod.appId) ?? '';
@@ -58,7 +54,6 @@ class Datalongtime {
     }
   }
 
-  //pushtoken
   static Future<String> get getPushtoken async {
     try {
       const MethodChannel channel = MethodChannel('getPushTokenChannel');
@@ -68,7 +63,6 @@ class Datalongtime {
     }
   }
 
-  //isAorB
   static bool _isAorB = false;
   static bool get getIsAorB => _isAorB;
   static Future<void> setIsAorB(bool isAorB) async {
@@ -76,7 +70,6 @@ class Datalongtime {
     await _sharedPreferences?.setBool('isAorB', isAorB);
   }
 
-  //getPassword
   static bool _getPassword = false;
   static bool get getGetPassword => _getPassword;
   static Future<void> setGetPassword(bool getPassword) async {
@@ -84,7 +77,6 @@ class Datalongtime {
     await _sharedPreferences?.setBool('getPassword', getPassword);
   }
 
-  //logintoken
   static String _token = '';
   static String get getToken => _token;
   static Future<void> setToken(String loginToken) async {
@@ -92,7 +84,6 @@ class Datalongtime {
     await _sharedPreferences?.setString('logintoken', loginToken);
   }
 
-  //password
   static String _password = '';
   static String get getPassword => _password;
   static Future<void> setPassword(String password) async {
@@ -100,7 +91,6 @@ class Datalongtime {
     await _sharedPreferences?.setString('password', password);
   }
 
-  //h5Url
   static String _h5Url = '';
   static String get getH5Url => _h5Url;
   static Future<void> setH5Url(String h5Url) async {
@@ -108,7 +98,6 @@ class Datalongtime {
     await _sharedPreferences?.setString('h5Url', h5Url);
   }
 
-  //isVpn
   static Future<int> get getIsVpn async {
     try {
       return (await VpnDetector().isVpnActive()) == VpnStatus.active ? 1 : 0;
@@ -117,7 +106,6 @@ class Datalongtime {
     }
   }
 
-  //language
   static Future<List<dynamic>> get getLanguage async {
     try {
       return await Devicelocale.preferredLanguages ?? [];
@@ -126,7 +114,6 @@ class Datalongtime {
     }
   }
 
-  //ajResult
   static Future<String> get getAjResult async {
     try {
       final result = await Adjust.getAttribution().timeout(
@@ -139,7 +126,6 @@ class Datalongtime {
     }
   }
 
-  //adId
   static Future<String> get getAdId async {
     try {
       return await Adjust.getAdid() ?? '';

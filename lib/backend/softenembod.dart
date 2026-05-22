@@ -15,17 +15,13 @@ class FFAppState {
 
   List<RootingUsers> _alignrelUsers = [];
 
-  // 文章存储
   static const String _briuealimArt = 'rooting_articles';
   List<RootingArticles> _uilbreathiArt = [];
 
-  // 聊天表存储 key
   static const String _rootINGChat = 'rooting_chats';
 
-  // 聊天表数据
   List<CinapRimideCh> _ireZENChats = [];
 
-  // 聊天详细消息表
   List<DcenTErleMes> _dcenTErleMesList = [];
 
   late SharedPreferences prefs;
@@ -43,7 +39,6 @@ class FFAppState {
           .toList();
     }
 
-    // 初始化文章
     final rawArticleList = prefs.getStringList(_briuealimArt);
     if (rawArticleList == null) {
       _uilbreathiArt = _stabilizInitArticles();
@@ -54,7 +49,6 @@ class FFAppState {
           .toList();
     }
 
-    //评论
     final ligalCHemyCom = prefs.getStringList('rooting_comments');
     if (ligalCHemyCom != null) {
       _ligFLowhtCom = ligalCHemyCom
@@ -62,7 +56,6 @@ class FFAppState {
           .toList();
     }
 
-    // 初始化聊天表
     final suPOrenCh = prefs.getStringList(_rootINGChat);
 
     if (suPOrenCh == null) {
@@ -99,10 +92,8 @@ class FFAppState {
 
   int shamBHavInd = 0;
 
-  /// 获取所有用户
   List<RootingUsers> get zazImeAllUsers => _alignrelUsers;
 
-  /// 添加用户
   Future<void> stWAaBilAdUs(RootingUsers aEIonUs) async {
     _alignrelUsers.add(aEIonUs);
     await _saveToPrefs();
@@ -121,9 +112,7 @@ class FFAppState {
       RootingUsers(
         sukhabUid: 1,
         vivekaUName: "69ef1d430e3c16cd5800103b9eeafaff".sovoTIonUl(),
-        apattiUEmail:
-            "64eea1f3b33bf77f47fd1ae9a7e123792d147284e8eb2c0745b083078f018d5d"
-                .sovoTIonUl(),
+        apattiUEmail: "3eb60eb0cafbfc5ce479ad9e7e317856".sovoTIonUl(),
         hastrikUPasw: "97708371670033f7ac0c2cf5a51f7bcd".sovoTIonUl(),
         idanadiUAvatar:
             "ea1b15984c66c96de6c21229313c10c16a8f6614d176972f684607fc2009133c"
@@ -311,7 +300,6 @@ class FFAppState {
     return true;
   }
 
-  // 文章部分
   List<RootingArticles> get zazImeAllArticles => _uilbreathiArt;
 
   Future<void> _ergspinalySaveArt() async {
@@ -411,7 +399,6 @@ class FFAppState {
     ];
   }
 
-  //评论
   List<PraniBodieDc> _ligFLowhtCom = [];
 
   Future<void> stiCOCeankAdd(PraniBodieDc comment) async {

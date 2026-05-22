@@ -444,7 +444,6 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
     }
   }
 
-  //login
   static Future<dynamic> loginPost() async {
     return await ApiMethod.post(
       '/opi/v1/bm7huYtVRh5Q8VXNtnZCl',

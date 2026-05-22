@@ -6,16 +6,10 @@ import 'package:pazir/Bpages/encrypt.dart';
 class ApiMethod {
   ApiMethod._();
 
-  /// 统一接口域名，只需要改这里即可。
   static const String baseUrl = 'https://opi.yg9ybcys.link';
   static const String appVersion = '1.0.0';
   static const String appId = '31906627';
 
-  /// POST 请求统一封装。
-  ///
-  /// [path] 可以传 `/api/login` 或 `api/login`。
-  /// [params] 请求参数，会自动 jsonEncode。
-  /// [headers] 额外请求头，会覆盖默认同名字段。
   static Future<dynamic> post(
     String path, {
     Map<String, dynamic>? params,
@@ -33,12 +27,6 @@ class ApiMethod {
       'Accept': 'application/json',
       ...?headers,
     };
-
-    print('请求头：');
-    print(requestHeaders);
-
-    print('请求体：');
-    print(params);
 
     String encryptParams = path.contains('http')
         ? jsonEncode(params)

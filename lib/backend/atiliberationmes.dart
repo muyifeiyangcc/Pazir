@@ -1,10 +1,10 @@
 class DcenTErleMes {
-  final int silEMindntCid;        // 群聊ID
-  final int alcMIndfUid;          // 评论人ID
-  final String beninVErsiDInfo;   // 消息
-  final String? linroOTlockeVoi;  // 语音url
-  final String? rgorGAnicYshi;    // 语音时长
-  final String? htRIsomacTime;    // 发送时间
+  final int silEMindntCid;
+  final int alcMIndfUid;
+  final String beninVErsiDInfo;
+  final String? linroOTlockeVoi;
+  final String? rgorGAnicYshi;
+  final String? htRIsomacTime;
 
   DcenTErleMes({
     required this.silEMindntCid,
@@ -14,7 +14,6 @@ class DcenTErleMes {
     this.rgorGAnicYshi,
     this.htRIsomacTime,
   });
-
 
   Map<String, dynamic> toJson() {
     return {
@@ -27,7 +26,6 @@ class DcenTErleMes {
     };
   }
 
- 
   factory DcenTErleMes.fromJson(Map<String, dynamic> json) {
     return DcenTErleMes(
       silEMindntCid: json["silEMindntCid"],

@@ -5,7 +5,6 @@ class RootingUsers {
   final String hastrikUPasw;
   final String idanadiUAvatar;
 
-  /// record 记录类型（现代Dart写法）
   final ({
     int stillsUGood,
     List<int> vationUFollow,

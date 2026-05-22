@@ -1,11 +1,11 @@
 class CinapRimideCh {
-  final int serRAcidumCid; // 聊天ID
-  final List<int> cheMIcalerUsers; // 包含用户
-  final bool falOTioncIs; // 是否群聊
-  final String? spFOlianfWa; // 群聊文案
-  final int? masBOosterKs; // 群聊流量数
-  final String? scROffubCover; // 群聊封面
-  final int? scrEXtubMusic; // 群聊背景音乐
+  final int serRAcidumCid;
+  final List<int> cheMIcalerUsers;
+  final bool falOTioncIs;
+  final String? spFOlianfWa;
+  final int? masBOosterKs;
+  final String? scROffubCover;
+  final int? scrEXtubMusic;
 
   CinapRimideCh({
     required this.serRAcidumCid,
@@ -16,7 +16,6 @@ class CinapRimideCh {
     this.scROffubCover,
     this.scrEXtubMusic,
   });
-
 
   Map<String, dynamic> toJson() {
     return {
@@ -30,11 +29,11 @@ class CinapRimideCh {
     };
   }
 
-
   factory CinapRimideCh.fromJson(Map<String, dynamic> json) {
     return CinapRimideCh(
       serRAcidumCid: json['serRAcidumCid'] ?? 0,
-      cheMIcalerUsers: (json['cheMIcalerUsers'] as List<dynamic>?)
+      cheMIcalerUsers:
+          (json['cheMIcalerUsers'] as List<dynamic>?)
               ?.map((e) => e as int)
               .toList() ??
           [],
@@ -45,6 +44,4 @@ class CinapRimideCh {
       scrEXtubMusic: json['scrEXtubMusic'] ?? -1,
     );
   }
-
-
 }
