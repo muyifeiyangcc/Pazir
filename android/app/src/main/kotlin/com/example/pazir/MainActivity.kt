@@ -1,4 +1,4 @@
-package com.pazia.aozlida
+package com.pazaizla.aozlida
 
 import io.flutter.embedding.android.FlutterActivity
 import com.google.firebase.messaging.FirebaseMessaging
