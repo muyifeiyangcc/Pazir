@@ -8,8 +8,6 @@ import 'package:devicelocale/devicelocale.dart';
 import 'package:adjust_sdk/adjust.dart';
 
 class Datalongtime {
-  static final String getPasswordUrl = 'http://y5o3p9u7i1t2r4.shop/backtwo';
-
   static SharedPreferences? _sharedPreferences;
 
   static Future initSharedPreference() async {

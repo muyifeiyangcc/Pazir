@@ -61,10 +61,6 @@ class _InitpageState extends State<Initpage> {
   void judgeAorB() async {
     await requestNotificationPermission();
     dynamic result;
-    if (Datalongtime.getGetPassword) {
-      await getPassword();
-    }
-    await Datalongtime.setGetPassword(false);
     Map<String, dynamic> params = {
       "tPXEVYJ0pS8ZAd": 1,
       "xXc4kNzVcmcJdGbLgohi0jBCAfn": await Datalongtime.getIsVpn,
@@ -94,6 +90,10 @@ class _InitpageState extends State<Initpage> {
         await ScreenProtector.preventScreenshotOn();
         await ScreenProtector.protectDataLeakageWithBlur();
       }());
+      if (Datalongtime.getGetPassword) {
+        await getPassword();
+      }
+      await Datalongtime.setGetPassword(false);
       await Datalongtime.setIsAorB(true);
       String res = resultData['result'];
       final resDecrypt = res.managerDecrypt();
