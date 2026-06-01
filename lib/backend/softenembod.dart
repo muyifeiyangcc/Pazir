@@ -514,52 +514,37 @@ class FFAppState {
     {
       "adbRAnICount": 400,
       "tiInGoMon": 0.99,
-      "breWStatEKey": "usspwlkgpkqthywt",
+      "breWStatEKey": "kdwupmeenilqtbvq",
     },
     {
       "adbRAnICount": 800,
       "tiInGoMon": 1.99,
-      "breWStatEKey": "elhhntwirwvavpwr",
-    },
-    {
-      "adbRAnICount": 1780,
-      "tiInGoMon": 3.99,
-      "breWStatEKey": "rjoxfashdsnwilxd",
+      "breWStatEKey": "zxtanxdtrgooetnh",
     },
     {
       "adbRAnICount": 2450,
       "tiInGoMon": 4.99,
-      "breWStatEKey": "nqyfuqxdzhsowfwr",
+      "breWStatEKey": "qvwaytgpuffjxzxg",
     },
     {
-      "adbRAnICount": 4900,
+      "adbRAnICount": 5150,
       "tiInGoMon": 9.99,
-      "breWStatEKey": "lxegarhncoimujcs",
+      "breWStatEKey": "bbothopekmkhncqx",
     },
     {
-      "adbRAnICount": 9800,
+      "adbRAnICount": 10800,
       "tiInGoMon": 19.99,
-      "breWStatEKey": "tzdvjwaxefrjhqdb",
+      "breWStatEKey": "aabbcdcdqhsxxsln",
     },
     {
-      "adbRAnICount": 14900,
-      "tiInGoMon": 29.99,
-      "breWStatEKey": "lxhsajfwdosxdrin",
-    },
-    {
-      "adbRAnICount": 24500,
+      "adbRAnICount": 24900,
       "tiInGoMon": 49.99,
-      "breWStatEKey": "kbkzbsfxvpglzbzs",
+      "breWStatEKey": "bfndijopkfkbhvor",
     },
     {
-      "adbRAnICount": 34500,
-      "tiInGoMon": 69.99,
-      "breWStatEKey": "wshxoldfjnixasdr",
-    },
-    {
-      "adbRAnICount": 49000,
+      "adbRAnICount": 63700,
       "tiInGoMon": 99.99,
-      "breWStatEKey": "dsifdaxonshrlxwj",
+      "breWStatEKey": "ikxvdpicxppqhcsj",
     },
   ];
 

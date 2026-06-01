@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
 import 'package:pazir/backend/softenembod.dart';
-import 'package:pazir/page/kundalinichat/kanadiyanai.dart';
 import 'package:pazir/page/manipuramine/sitaliagnisarazhu.dart';
 import 'package:pazir/page/manipuramine/twistflowreport.dart';
 import 'package:pazir/page/samadhihome/ibhaktintegralf.dart';
+import 'package:pazir/page/samadhihome/koshashaktipa.dart';
 import 'package:pazir/page/samadhihome/openisoftenvdo.dart';
 
 class PranaAjnaShou extends StatefulWidget {
@@ -197,8 +197,7 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                 child: GestureDetector(
                                   behavior: HitTestBehavior.translucent,
                                   onTap: () {
-                                    // Get.dialog(KoshasHaktiPa());
-                                    Get.to(KanaDiyanAi());
+                                    Get.dialog(KoshasHaktiPa());
                                   },
                                   child: PhysicalModel(
                                     color: Colors.transparent,
@@ -266,7 +265,7 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                               ),
                                             ),
                                             Text(
-                                              "  START WITH",
+                                              "  UNLOCK WITH",
                                               style: TextStyle(
                                                 fontFamily: 'NotoSans',
                                                 fontSize: 14,

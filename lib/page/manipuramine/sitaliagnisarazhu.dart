@@ -2,8 +2,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pazir/backend/atiomentnexchat.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
 import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/kundalinichat/grounnimilia.dart';
+import 'package:pazir/page/manipuramine/ahimsteyagold.dart';
 import 'package:pazir/page/manipuramine/tejaskundalset.dart';
 import 'package:pazir/page/manipuramine/twistflowreport.dart';
 import 'package:pazir/page/samadhihome/openisoftenvdo.dart';
@@ -345,455 +348,455 @@ class _SitaliaGnisaraZhu extends State<SitaliaGnisaraZhu> {
                                         child: Container(height: 28),
                                       ),
 
-                                      // Builder(
-                                      //   builder: (context) {
-                                      //     if (widget.sthIRaType == 1.0) {
-                                      //       return GestureDetector(
-                                      //         behavior:
-                                      //             HitTestBehavior.translucent,
-                                      //         onTap: () {
-                                      //           Get.to(AhimsTeyaGold())?.then((
-                                      //             _,
-                                      //           ) {
-                                      //             setState(() {});
-                                      //           });
-                                      //         },
-                                      //         child: Container(
-                                      //           width: 335,
-                                      //           height: 104,
-                                      //           decoration: BoxDecoration(
-                                      //             image: DecorationImage(
-                                      //               image: AssetImage(
-                                      //                 "assets/images/ncuqZXIJUT.png",
-                                      //               ),
-                                      //             ),
-                                      //           ),
-                                      //           child: Stack(
-                                      //             children: [
-                                      //               Align(
-                                      //                 alignment:
-                                      //                     AlignmentDirectional(
-                                      //                       -0.9,
-                                      //                       0,
-                                      //                     ),
-                                      //                 child: Image.asset(
-                                      //                   "assets/images/zxcqwBCWY.png",
-                                      //                   width: 71,
-                                      //                   height: 59,
-                                      //                 ),
-                                      //               ),
+                                      Builder(
+                                        builder: (context) {
+                                          if (widget.sthIRaType == 1.0) {
+                                            return GestureDetector(
+                                              behavior:
+                                                  HitTestBehavior.translucent,
+                                              onTap: () {
+                                                Get.to(AhimsTeyaGold())?.then((
+                                                  _,
+                                                ) {
+                                                  setState(() {});
+                                                });
+                                              },
+                                              child: Container(
+                                                width: 335,
+                                                height: 104,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                      "assets/images/ncuqZXIJUT.png",
+                                                    ),
+                                                  ),
+                                                ),
+                                                child: Stack(
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                            -0.9,
+                                                            0,
+                                                          ),
+                                                      child: Image.asset(
+                                                        "assets/images/zxcqwBCWY.png",
+                                                        width: 71,
+                                                        height: 59,
+                                                      ),
+                                                    ),
 
-                                      //               Padding(
-                                      //                 padding:
-                                      //                     const EdgeInsets.only(
-                                      //                       left: 96,
-                                      //                       top: 30,
-                                      //                     ),
-                                      //                 child: Align(
-                                      //                   alignment: Alignment
-                                      //                       .centerLeft,
-                                      //                   child: Text(
-                                      //                     "${karUnaUs.relations.stillsUGood}",
-                                      //                     style: TextStyle(
-                                      //                       fontFamily:
-                                      //                           'NotoSans',
-                                      //                       fontSize: 24,
-                                      //                       fontWeight:
-                                      //                           FontWeight.w700,
-                                      //                       color:
-                                      //                           Color.fromRGBO(
-                                      //                             5,
-                                      //                             3,
-                                      //                             19,
-                                      //                             1,
-                                      //                           ),
-                                      //                     ),
-                                      //                   ),
-                                      //                 ),
-                                      //               ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                            left: 96,
+                                                            top: 30,
+                                                          ),
+                                                      child: Align(
+                                                        alignment: Alignment
+                                                            .centerLeft,
+                                                        child: Text(
+                                                          "${karUnaUs.relations.stillsUGood}",
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'NotoSans',
+                                                            fontSize: 24,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                  5,
+                                                                  3,
+                                                                  19,
+                                                                  1,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
 
-                                      //               Align(
-                                      //                 alignment:
-                                      //                     AlignmentDirectional(
-                                      //                       0.85,
-                                      //                       0,
-                                      //                     ),
-                                      //                 child: PhysicalModel(
-                                      //                   color:
-                                      //                       Colors.transparent,
-                                      //                   elevation: 0,
-                                      //                   borderRadius:
-                                      //                       BorderRadius.circular(
-                                      //                         45,
-                                      //                       ),
-                                      //                   child: Container(
-                                      //                     width: 100,
-                                      //                     height: 40,
-                                      //                     decoration: BoxDecoration(
-                                      //                       border: Border.all(
-                                      //                         color:
-                                      //                             const Color.fromRGBO(
-                                      //                               255,
-                                      //                               255,
-                                      //                               255,
-                                      //                               1,
-                                      //                             ),
-                                      //                       ),
-                                      //                       borderRadius:
-                                      //                           BorderRadius.circular(
-                                      //                             45,
-                                      //                           ),
-                                      //                     ),
-                                      //                     child: Container(
-                                      //                       decoration: BoxDecoration(
-                                      //                         gradient: LinearGradient(
-                                      //                           colors: [
-                                      //                             Color.fromRGBO(
-                                      //                               30,
-                                      //                               126,
-                                      //                               230,
-                                      //                               1,
-                                      //                             ),
-                                      //                             Color.fromRGBO(
-                                      //                               184,
-                                      //                               218,
-                                      //                               255,
-                                      //                               1,
-                                      //                             ),
-                                      //                           ],
-                                      //                           begin:
-                                      //                               Alignment(
-                                      //                                 -1,
-                                      //                                 0,
-                                      //                               ),
-                                      //                           end: Alignment(
-                                      //                             1,
-                                      //                             0,
-                                      //                           ),
-                                      //                         ),
-                                      //                         borderRadius:
-                                      //                             BorderRadius.circular(
-                                      //                               45,
-                                      //                             ),
-                                      //                       ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                            0.85,
+                                                            0,
+                                                          ),
+                                                      child: PhysicalModel(
+                                                        color:
+                                                            Colors.transparent,
+                                                        elevation: 0,
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                              45,
+                                                            ),
+                                                        child: Container(
+                                                          width: 100,
+                                                          height: 40,
+                                                          decoration: BoxDecoration(
+                                                            border: Border.all(
+                                                              color:
+                                                                  const Color.fromRGBO(
+                                                                    255,
+                                                                    255,
+                                                                    255,
+                                                                    1,
+                                                                  ),
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius.circular(
+                                                                  45,
+                                                                ),
+                                                          ),
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              gradient: LinearGradient(
+                                                                colors: [
+                                                                  Color.fromRGBO(
+                                                                    30,
+                                                                    126,
+                                                                    230,
+                                                                    1,
+                                                                  ),
+                                                                  Color.fromRGBO(
+                                                                    184,
+                                                                    218,
+                                                                    255,
+                                                                    1,
+                                                                  ),
+                                                                ],
+                                                                begin:
+                                                                    Alignment(
+                                                                      -1,
+                                                                      0,
+                                                                    ),
+                                                                end: Alignment(
+                                                                  1,
+                                                                  0,
+                                                                ),
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius.circular(
+                                                                    45,
+                                                                  ),
+                                                            ),
 
-                                      //                       child: Row(
-                                      //                         children: [
-                                      //                           Padding(
-                                      //                             padding:
-                                      //                                 const EdgeInsets.all(
-                                      //                                   1.0,
-                                      //                                 ),
-                                      //                             child: Container(
-                                      //                               width: 48,
-                                      //                               height: 36,
-                                      //                               decoration: BoxDecoration(
-                                      //                                 borderRadius:
-                                      //                                     BorderRadius.circular(
-                                      //                                       26,
-                                      //                                     ),
-                                      //                                 color:
-                                      //                                     Color.fromRGBO(
-                                      //                                       255,
-                                      //                                       255,
-                                      //                                       255,
-                                      //                                       1,
-                                      //                                     ),
-                                      //                               ),
-                                      //                               alignment:
-                                      //                                   Alignment
-                                      //                                       .center,
-                                      //                               child: Padding(
-                                      //                                 padding:
-                                      //                                     const EdgeInsets.all(
-                                      //                                       11.0,
-                                      //                                     ),
-                                      //                                 child: Image(
-                                      //                                   image: AssetImage(
-                                      //                                     "assets/images/chiuqwNSIFQR.png",
-                                      //                                   ),
-                                      //                                 ),
-                                      //                               ),
-                                      //                             ),
-                                      //                           ),
-                                      //                           Text(
-                                      //                             "  GO",
-                                      //                             style: TextStyle(
-                                      //                               fontFamily:
-                                      //                                   'NotoSans',
-                                      //                               fontSize:
-                                      //                                   14,
-                                      //                               fontWeight:
-                                      //                                   FontWeight
-                                      //                                       .w400,
-                                      //                               color:
-                                      //                                   Color.fromRGBO(
-                                      //                                     255,
-                                      //                                     255,
-                                      //                                     255,
-                                      //                                     1,
-                                      //                                   ),
-                                      //                             ),
-                                      //                           ),
-                                      //                         ],
-                                      //                       ),
-                                      //                     ),
-                                      //                   ),
-                                      //                 ),
-                                      //               ),
+                                                            child: Row(
+                                                              children: [
+                                                                Padding(
+                                                                  padding:
+                                                                      const EdgeInsets.all(
+                                                                        1.0,
+                                                                      ),
+                                                                  child: Container(
+                                                                    width: 48,
+                                                                    height: 36,
+                                                                    decoration: BoxDecoration(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                            26,
+                                                                          ),
+                                                                      color:
+                                                                          Color.fromRGBO(
+                                                                            255,
+                                                                            255,
+                                                                            255,
+                                                                            1,
+                                                                          ),
+                                                                    ),
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .center,
+                                                                    child: Padding(
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                            11.0,
+                                                                          ),
+                                                                      child: Image(
+                                                                        image: AssetImage(
+                                                                          "assets/images/chiuqwNSIFQR.png",
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  "  GO",
+                                                                  style: TextStyle(
+                                                                    fontFamily:
+                                                                        'NotoSans',
+                                                                    fontSize:
+                                                                        14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    color:
+                                                                        Color.fromRGBO(
+                                                                          255,
+                                                                          255,
+                                                                          255,
+                                                                          1,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
 
-                                      //               Padding(
-                                      //                 padding:
-                                      //                     const EdgeInsets.only(
-                                      //                       right: 85,
-                                      //                       top: 70,
-                                      //                     ),
-                                      //                 child: Align(
-                                      //                   alignment: Alignment
-                                      //                       .centerRight,
-                                      //                   child: ClipOval(
-                                      //                     child: Container(
-                                      //                       width: 15,
-                                      //                       height: 15,
-                                      //                       color:
-                                      //                           Color.fromRGBO(
-                                      //                             255,
-                                      //                             255,
-                                      //                             255,
-                                      //                             1,
-                                      //                           ),
-                                      //                     ),
-                                      //                   ),
-                                      //                 ),
-                                      //               ),
-                                      //             ],
-                                      //           ),
-                                      //         ),
-                                      //       );
-                                      //     }
-                                      //     return Visibility(
-                                      //       visible:
-                                      //           widget.pranAGurUid !=
-                                      //           FFAppState
-                                      //               .instance
-                                      //               .flexionLogUid,
-                                      //       child: Padding(
-                                      //         padding: const EdgeInsets.only(
-                                      //           bottom: 21,
-                                      //         ),
-                                      //         child: Row(
-                                      //           mainAxisAlignment:
-                                      //               MainAxisAlignment.center,
-                                      //           children: [
-                                      //             GestureDetector(
-                                      //               behavior: HitTestBehavior
-                                      //                   .translucent,
-                                      //               onTap: () async {
-                                      //                 await FFAppState.instance
-                                      //                     .gicFAliniFo(
-                                      //                       widget.pranAGurUid,
-                                      //                     );
-                                      //                 setState(() {});
-                                      //               },
-                                      //               child: ClipRRect(
-                                      //                 borderRadius:
-                                      //                     BorderRadiusGeometry.circular(
-                                      //                       24,
-                                      //                     ),
-                                      //                 child: Container(
-                                      //                   width: 151,
-                                      //                   height: 64,
-                                      //                   color: Color.fromRGBO(
-                                      //                     235,
-                                      //                     240,
-                                      //                     245,
-                                      //                     1,
-                                      //                   ),
-                                      //                   alignment:
-                                      //                       Alignment.center,
-                                      //                   child: Row(
-                                      //                     mainAxisAlignment:
-                                      //                         MainAxisAlignment
-                                      //                             .center,
-                                      //                     children: [
-                                      //                       Icon(
-                                      //                         karUnaUs
-                                      //                                 .relations
-                                      //                                 .onactiUFans
-                                      //                                 .contains(
-                                      //                                   FFAppState
-                                      //                                       .instance
-                                      //                                       .flexionLogUid,
-                                      //                                 )
-                                      //                             ? Icons.check
-                                      //                             : Icons.add,
-                                      //                         size: 30,
-                                      //                         color:
-                                      //                             Color.fromRGBO(
-                                      //                               136,
-                                      //                               147,
-                                      //                               162,
-                                      //                               1,
-                                      //                             ),
-                                      //                       ),
-                                      //                       SizedBox(width: 5),
-                                      //                       Text(
-                                      //                         karUnaUs
-                                      //                                 .relations
-                                      //                                 .onactiUFans
-                                      //                                 .contains(
-                                      //                                   FFAppState
-                                      //                                       .instance
-                                      //                                       .flexionLogUid,
-                                      //                                 )
-                                      //                             ? "Following"
-                                      //                             : "Follow",
-                                      //                         style: TextStyle(
-                                      //                           fontFamily:
-                                      //                               'Raleway',
-                                      //                           fontSize: 14,
-                                      //                           fontWeight:
-                                      //                               FontWeight
-                                      //                                   .w400,
-                                      //                           color:
-                                      //                               Color.fromRGBO(
-                                      //                                 5,
-                                      //                                 3,
-                                      //                                 19,
-                                      //                                 .4,
-                                      //                               ),
-                                      //                         ),
-                                      //                       ),
-                                      //                     ],
-                                      //                   ),
-                                      //                 ),
-                                      //               ),
-                                      //             ),
-                                      //             SizedBox(width: 17),
-                                      //             GestureDetector(
-                                      //               behavior: HitTestBehavior
-                                      //                   .translucent,
-                                      //               onTap: () {
-                                      //                 final amrITaCh = FFAppState
-                                      //                     .instance
-                                      //                     .zazImeAllChats
-                                      //                     .where(
-                                      //                       (pazir) =>
-                                      //                           pazir
-                                      //                               .cheMIcalerUsers
-                                      //                               .contains(
-                                      //                                 widget
-                                      //                                     .pranAGurUid,
-                                      //                               ) &&
-                                      //                           pazir
-                                      //                               .cheMIcalerUsers
-                                      //                               .contains(
-                                      //                                 FFAppState
-                                      //                                     .instance
-                                      //                                     .flexionLogUid,
-                                      //                               ),
-                                      //                     )
-                                      //                     .toList();
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                            right: 85,
+                                                            top: 70,
+                                                          ),
+                                                      child: Align(
+                                                        alignment: Alignment
+                                                            .centerRight,
+                                                        child: ClipOval(
+                                                          child: Container(
+                                                            width: 15,
+                                                            height: 15,
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                  255,
+                                                                  255,
+                                                                  255,
+                                                                  1,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          return Visibility(
+                                            visible:
+                                                widget.pranAGurUid !=
+                                                FFAppState
+                                                    .instance
+                                                    .flexionLogUid,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                bottom: 21,
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  GestureDetector(
+                                                    behavior: HitTestBehavior
+                                                        .translucent,
+                                                    onTap: () async {
+                                                      await FFAppState.instance
+                                                          .gicFAliniFo(
+                                                            widget.pranAGurUid,
+                                                          );
+                                                      setState(() {});
+                                                    },
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadiusGeometry.circular(
+                                                            24,
+                                                          ),
+                                                      child: Container(
+                                                        width: 151,
+                                                        height: 64,
+                                                        color: Color.fromRGBO(
+                                                          235,
+                                                          240,
+                                                          245,
+                                                          1,
+                                                        ),
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              karUnaUs
+                                                                      .relations
+                                                                      .onactiUFans
+                                                                      .contains(
+                                                                        FFAppState
+                                                                            .instance
+                                                                            .flexionLogUid,
+                                                                      )
+                                                                  ? Icons.check
+                                                                  : Icons.add,
+                                                              size: 30,
+                                                              color:
+                                                                  Color.fromRGBO(
+                                                                    136,
+                                                                    147,
+                                                                    162,
+                                                                    1,
+                                                                  ),
+                                                            ),
+                                                            SizedBox(width: 5),
+                                                            Text(
+                                                              karUnaUs
+                                                                      .relations
+                                                                      .onactiUFans
+                                                                      .contains(
+                                                                        FFAppState
+                                                                            .instance
+                                                                            .flexionLogUid,
+                                                                      )
+                                                                  ? "Following"
+                                                                  : "Follow",
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Raleway',
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                color:
+                                                                    Color.fromRGBO(
+                                                                      5,
+                                                                      3,
+                                                                      19,
+                                                                      .4,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 17),
+                                                  GestureDetector(
+                                                    behavior: HitTestBehavior
+                                                        .translucent,
+                                                    onTap: () {
+                                                      final amrITaCh = FFAppState
+                                                          .instance
+                                                          .zazImeAllChats
+                                                          .where(
+                                                            (pazir) =>
+                                                                pazir
+                                                                    .cheMIcalerUsers
+                                                                    .contains(
+                                                                      widget
+                                                                          .pranAGurUid,
+                                                                    ) &&
+                                                                pazir
+                                                                    .cheMIcalerUsers
+                                                                    .contains(
+                                                                      FFAppState
+                                                                          .instance
+                                                                          .flexionLogUid,
+                                                                    ),
+                                                          )
+                                                          .toList();
 
-                                      //                 int vrittiNewCId;
+                                                      int vrittiNewCId;
 
-                                      //                 if (amrITaCh.isEmpty) {
-                                      //                   vrittiNewCId =
-                                      //                       FFAppState
-                                      //                           .instance
-                                      //                           .zazImeAllChats
-                                      //                           .length +
-                                      //                       1;
-                                      //                   CinapRimideCh
-                                      //                   newKAtasaiCh =
-                                      //                       CinapRimideCh(
-                                      //                         serRAcidumCid:
-                                      //                             vrittiNewCId,
-                                      //                         cheMIcalerUsers: [
-                                      //                           FFAppState
-                                      //                               .instance
-                                      //                               .flexionLogUid,
-                                      //                           widget
-                                      //                               .pranAGurUid,
-                                      //                         ],
-                                      //                         falOTioncIs:
-                                      //                             false,
-                                      //                       );
+                                                      if (amrITaCh.isEmpty) {
+                                                        vrittiNewCId =
+                                                            FFAppState
+                                                                .instance
+                                                                .zazImeAllChats
+                                                                .length +
+                                                            1;
+                                                        CinapRimideCh
+                                                        newKAtasaiCh =
+                                                            CinapRimideCh(
+                                                              serRAcidumCid:
+                                                                  vrittiNewCId,
+                                                              cheMIcalerUsers: [
+                                                                FFAppState
+                                                                    .instance
+                                                                    .flexionLogUid,
+                                                                widget
+                                                                    .pranAGurUid,
+                                                              ],
+                                                              falOTioncIs:
+                                                                  false,
+                                                            );
 
-                                      //                   FFAppState.instance
-                                      //                       .draTUngAddCh(
-                                      //                         newKAtasaiCh,
-                                      //                       );
-                                      //                 } else {
-                                      //                   vrittiNewCId = amrITaCh
-                                      //                       .first
-                                      //                       .serRAcidumCid;
-                                      //                 }
+                                                        FFAppState.instance
+                                                            .draTUngAddCh(
+                                                              newKAtasaiCh,
+                                                            );
+                                                      } else {
+                                                        vrittiNewCId = amrITaCh
+                                                            .first
+                                                            .serRAcidumCid;
+                                                      }
 
-                                      //                 Get.to(
-                                      //                   GrounnImiLia(
-                                      //                     rabAHrtaCid:
-                                      //                         vrittiNewCId,
-                                      //                     bhRIdhaUs: karUnaUs,
-                                      //                   ),
-                                      //                 );
-                                      //               },
-                                      //               child: ClipRRect(
-                                      //                 borderRadius:
-                                      //                     BorderRadiusGeometry.circular(
-                                      //                       24,
-                                      //                     ),
-                                      //                 child: Container(
-                                      //                   width: 151,
-                                      //                   height: 64,
-                                      //                   color: Color.fromRGBO(
-                                      //                     235,
-                                      //                     240,
-                                      //                     245,
-                                      //                     1,
-                                      //                   ),
-                                      //                   alignment:
-                                      //                       Alignment.center,
-                                      //                   child: Row(
-                                      //                     mainAxisAlignment:
-                                      //                         MainAxisAlignment
-                                      //                             .center,
-                                      //                     children: [
-                                      //                       Image.asset(
-                                      //                         "assets/images/xnzNIUSP.png",
-                                      //                         width: 28,
-                                      //                         height: 28,
-                                      //                       ),
-                                      //                       SizedBox(width: 5),
-                                      //                       Text(
-                                      //                         "Chat",
-                                      //                         style: TextStyle(
-                                      //                           fontFamily:
-                                      //                               'Raleway',
-                                      //                           fontSize: 14,
-                                      //                           fontWeight:
-                                      //                               FontWeight
-                                      //                                   .w400,
-                                      //                           color:
-                                      //                               Color.fromRGBO(
-                                      //                                 5,
-                                      //                                 3,
-                                      //                                 19,
-                                      //                                 .4,
-                                      //                               ),
-                                      //                         ),
-                                      //                       ),
-                                      //                     ],
-                                      //                   ),
-                                      //                 ),
-                                      //               ),
-                                      //             ),
-                                      //           ],
-                                      //         ),
-                                      //       ),
-                                      //     );
-                                      //   },
-                                      // ),
+                                                      Get.to(
+                                                        GrounnImiLia(
+                                                          rabAHrtaCid:
+                                                              vrittiNewCId,
+                                                          bhRIdhaUs: karUnaUs,
+                                                        ),
+                                                      );
+                                                    },
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadiusGeometry.circular(
+                                                            24,
+                                                          ),
+                                                      child: Container(
+                                                        width: 151,
+                                                        height: 64,
+                                                        color: Color.fromRGBO(
+                                                          235,
+                                                          240,
+                                                          245,
+                                                          1,
+                                                        ),
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Image.asset(
+                                                              "assets/images/xnzNIUSP.png",
+                                                              width: 28,
+                                                              height: 28,
+                                                            ),
+                                                            SizedBox(width: 5),
+                                                            Text(
+                                                              "Chat",
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Raleway',
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                color:
+                                                                    Color.fromRGBO(
+                                                                      5,
+                                                                      3,
+                                                                      19,
+                                                                      .4,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
                                       Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
