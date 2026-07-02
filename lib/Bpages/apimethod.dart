@@ -7,7 +7,7 @@ class ApiMethod {
   ApiMethod._();
 
   static const String baseUrl = 'https://opi.yg9ybcys.link';
-  static const String appVersion = '1.0.1';
+  static const String appVersion = '1.1.0';
   static const String appId = '31906627';
 
   static Future<dynamic> post(
