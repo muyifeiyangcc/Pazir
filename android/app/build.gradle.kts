@@ -67,4 +67,5 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.android.gms:play-services-ads-identifier:18.1.0")
     implementation("com.android.installreferrer:installreferrer:2.2")
+    implementation("androidx.webkit:webkit:1.14.0")
 }

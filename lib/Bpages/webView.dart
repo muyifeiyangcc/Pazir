@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 import 'package:pazir/Bpages/apimethod.dart';
@@ -58,6 +60,7 @@ class WebviewPage extends StatefulWidget {
 
 class _WebviewPageState extends State<WebviewPage> {
   FlotwIStinGood flotwIStinGood = FlotwIStinGood();
+  final InAppWebViewKeepAlive keepsakePayVault = InAppWebViewKeepAlive();
 
   @override
   void initState() {
@@ -70,8 +73,30 @@ class _WebviewPageState extends State<WebviewPage> {
 
   @override
   void dispose() {
-    super.dispose();
     flotwIStinGood.onClose();
+    unawaited(InAppWebViewController.disposeKeepAlive(keepsakePayVault));
+    super.dispose();
+  }
+
+  Future<bool> enableGooglePayWebView() async {
+    try {
+      final bool? enabled = await const MethodChannel(
+        'getPushTokenChannel',
+      ).invokeMethod<bool>('enableGooglePayInWebView');
+      return enabled ?? false;
+    } catch (e) {
+      debugPrint("Failed to enable Google Pay in WebView: $e");
+      // Android 低版本或 WebView 不支持时由 H5 自己降级。
+      return false;
+    }
+  }
+
+  Future<void> _kcuvgiwenloadPayWebView(
+    InAppWebViewController controller,
+  ) async {
+    await enableGooglePayWebView();
+    if (!mounted) return;
+    await controller.loadUrl(urlRequest: URLRequest(url: WebUri(h5Url)));
   }
 
   bool isLoading = true;
@@ -135,6 +160,7 @@ class _WebviewPageState extends State<WebviewPage> {
                               : const Color(0xff170F3F),
                         ),
                         child: InAppWebView(
+                          keepAlive: keepsakePayVault,
                           onLoadStart: (controller, url) {
                             userActionUp('page_load_begin');
                             reloader.handleLoadStop(url);
@@ -153,7 +179,6 @@ class _WebviewPageState extends State<WebviewPage> {
                             userActionUp('page_load_error');
                           },
                           key: _globalKey,
-                          initialUrlRequest: URLRequest(url: WebUri(h5Url)),
                           initialSettings: InAppWebViewSettings(
                             iframeAllowFullscreen: true,
                             useShouldOverrideUrlLoading: true,
@@ -164,6 +189,7 @@ class _WebviewPageState extends State<WebviewPage> {
                             mediaPlaybackRequiresUserGesture: false,
                           ),
                           onWebViewCreated: (controller) {
+                            unawaited(_kcuvgiwenloadPayWebView(controller));
                             _controller = controller;
                             reloader = Webview(controller);
                             _controller!.addJavaScriptHandler(
