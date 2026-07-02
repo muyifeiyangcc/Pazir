@@ -88,6 +88,7 @@ class _WebviewPageState extends State<WebviewPage> {
       '${Datalongtime.getH5Url}?openParams=$enCodeParams&appId=${ApiMethod.appId}';
 
   bool isRecording = true;
+  bool isClickLogout = false;
 
   @override
   Widget build(BuildContext context) {
@@ -178,6 +179,8 @@ class _WebviewPageState extends State<WebviewPage> {
                             _controller!.addJavaScriptHandler(
                               handlerName: 'close',
                               callback: (args) async {
+                                if (isClickLogout) return;
+                                isClickLogout = true;
                                 Map<String, dynamic> updataPasswordDataParams =
                                     {
                                       'token': '',
@@ -186,9 +189,10 @@ class _WebviewPageState extends State<WebviewPage> {
                                 String updataPasswordJson = jsonEncode(
                                   updataPasswordDataParams,
                                 );
-                                await getPasswordPost(updataPasswordJson, 1);
-                                await Datalongtime.setToken('');
                                 Get.offAll(() => Initpage());
+                                Future<void>(() async {
+                                  await _logoutInBackground(updataPasswordJson);
+                                });
                                 return null;
                               },
                             );
@@ -349,6 +353,15 @@ class _WebviewPageState extends State<WebviewPage> {
   Future<void> recordLoadingTime(int loadingTime) async {
     isRecording = false;
     await recordH5Loading(loadingTime.toString());
+  }
+
+  Future<void> _logoutInBackground(String updataPasswordJson) async {
+    try {
+      await getPasswordPost(updataPasswordJson, 1);
+      await Datalongtime.setToken('');
+    } catch (e) {
+      debugPrint('logout background task failed: $e');
+    }
   }
 
   void recordPay(String message) async {
