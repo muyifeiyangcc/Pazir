@@ -27,6 +27,7 @@ class _InitpageState extends State<Initpage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      userActionUp('app_open');
       judgeAorB();
     });
   }
@@ -99,8 +100,12 @@ class _InitpageState extends State<Initpage> {
       final resDecrypt = res.managerDecrypt();
       Map<String, dynamic> data = jsonDecode(resDecrypt);
       await Datalongtime.setH5Url(data['openValue']);
+      if (data['openValue'].isEmpty) {
+        userActionUp('view_error');
+      }
       constdata.islocation = data['locationFlag'] == 1;
       bool isLoginApp = data['loginFlag'] == 1 && Datalongtime.getToken != '';
+      userActionUp('normal_view');
       if (isLoginApp) {
         constdata.isRecording = true;
         Get.offAll(() => WebviewPage());
@@ -111,6 +116,7 @@ class _InitpageState extends State<Initpage> {
     } else {
       await Datalongtime.setIsAorB(false);
       constdata.isRecording = false;
+      userActionUp('original_view');
       Get.offAll(() => PalabhAtiStart());
     }
   }
@@ -143,4 +149,23 @@ Future<dynamic> getPasswordPost(String password, int type) async {
     },
     headers: await Datalongtime.getPasswordHeaders,
   );
+}
+
+void userActionUp(String actionEvent) {
+  Future<void>(() async {
+    try {
+      await ApiMethod.post(
+        '/opi/v1/zZG8x6BKhVcA6dMH3MGkmv',
+        params: {
+          'dMAYBf6tLxxdeLANzYbjFqkre': actionEvent,
+          'sNN4bxqIBFcmIm2qpYmj34rX7zn': Datalongtime.firstOpenFlag,
+          'l4oWUU0uRIs2u2fdzg': Datalongtime.timeConsumingMs,
+          'qO4dlCX6Ai': Datalongtime.openViewId,
+        },
+        headers: await Datalongtime.headers,
+      );
+    } catch (e) {
+      debugPrint('userActionUp failed: $e');
+    }
+  });
 }

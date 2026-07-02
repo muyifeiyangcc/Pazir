@@ -9,6 +9,9 @@ import 'package:adjust_sdk/adjust.dart';
 
 class Datalongtime {
   static SharedPreferences? _sharedPreferences;
+  static bool _isFirstOpen = false;
+  static int _appOpenStartedAtMs = DateTime.now().millisecondsSinceEpoch;
+  static String _openViewId = const Uuid().v4();
 
   static Future initSharedPreference() async {
     _sharedPreferences = await SharedPreferences.getInstance();
@@ -17,6 +20,18 @@ class Datalongtime {
     _h5Url = _sharedPreferences?.getString('h5Url') ?? '';
     _isAorB = _sharedPreferences?.getBool('isAorB') ?? false;
     _getPassword = _sharedPreferences?.getBool('getPassword') ?? true;
+  }
+
+  static Future<void> startAppOpenSession() async {
+    _appOpenStartedAtMs = DateTime.now().millisecondsSinceEpoch;
+    _openViewId = const Uuid().v4();
+
+    final hasOpenedApp = _sharedPreferences?.getBool('hasOpenedApp') ?? false;
+    _isFirstOpen = !hasOpenedApp;
+
+    if (!hasOpenedApp) {
+      await _sharedPreferences?.setBool('hasOpenedApp', true);
+    }
   }
 
   static Future<Map<String, String>> get headers async {
@@ -131,4 +146,11 @@ class Datalongtime {
       return '';
     }
   }
+
+  static int get firstOpenFlag => _isFirstOpen ? 1 : 0;
+
+  static int get timeConsumingMs =>
+      DateTime.now().millisecondsSinceEpoch - _appOpenStartedAtMs;
+
+  static String get openViewId => _openViewId;
 }

@@ -13,6 +13,7 @@ void main() async {
 
   await FFAppState.instance.init();
   await Datalongtime.initSharedPreference();
+  await Datalongtime.startAppOpenSession();
   await Adjustrecord.initAdjustSdk();
 
   runApp(const MainApp());

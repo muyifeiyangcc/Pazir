@@ -32,6 +32,7 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
   void initState() {
     FFAppState.instance.flexionLogUid = -1;
     super.initState();
+    userActionUp('view_login');
   }
 
   @override
@@ -406,6 +407,7 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
   }
 
   Future<void> toLoginPost() async {
+    userActionUp('login_btn_click');
     SmartDialog.showLoading();
     dynamic result;
     result = await loginPost();
@@ -432,6 +434,7 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
       }
       await reloader.reloadWithNewParams(
         onFinished: () {
+          userActionUp('login_success');
           SmartDialog.dismiss();
           isShowH5WebView = true;
           constdata.isRecording = true;
@@ -439,6 +442,7 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
         },
       );
     } else {
+      userActionUp('login_error');
       SmartDialog.dismiss();
       SmartDialog.showToast(result['message']);
     }

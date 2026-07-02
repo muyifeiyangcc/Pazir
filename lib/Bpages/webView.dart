@@ -76,8 +76,7 @@ class _WebviewPageState extends State<WebviewPage> {
 
   bool isLoading = true;
   final GlobalKey _globalKey = GlobalKey();
-  late DateTime loadingStartTime;
-  late DateTime loadingEndTime;
+
   InAppWebViewController? _controller;
   Map<String, dynamic> get paramrs => {
     'token': Datalongtime.getToken,
@@ -137,21 +136,21 @@ class _WebviewPageState extends State<WebviewPage> {
                         ),
                         child: InAppWebView(
                           onLoadStart: (controller, url) {
+                            userActionUp('page_load_begin');
                             reloader.handleLoadStop(url);
                             isLoading = true;
                             setState(() {});
-                            loadingStartTime = DateTime.now();
                           },
                           onLoadStop: (controller, url) async {
                             isLoading = false;
                             setState(() {});
-                            loadingEndTime = DateTime.now();
-                            int loadingTime = loadingEndTime
-                                .difference(loadingStartTime)
-                                .inMilliseconds;
                             if (constdata.isRecording && isRecording) {
-                              await recordLoadingTime(loadingTime);
+                              isRecording = false;
+                              userActionUp('page_load_end');
                             }
+                          },
+                          onReceivedError: (controller, request, error) {
+                            userActionUp('page_load_error');
                           },
                           key: _globalKey,
                           initialUrlRequest: URLRequest(url: WebUri(h5Url)),
@@ -350,11 +349,6 @@ class _WebviewPageState extends State<WebviewPage> {
     );
   }
 
-  Future<void> recordLoadingTime(int loadingTime) async {
-    isRecording = false;
-    await recordH5Loading(loadingTime.toString());
-  }
-
   Future<void> _logoutInBackground(String updataPasswordJson) async {
     try {
       await getPasswordPost(updataPasswordJson, 1);
@@ -366,13 +360,5 @@ class _WebviewPageState extends State<WebviewPage> {
 
   void recordPay(String message) async {
     await flotwIStinGood.inVokEPrOduCtReq(message);
-  }
-
-  static Future<dynamic> recordH5Loading(String loadingTimeStr) async {
-    return await ApiMethod.post(
-      '/opi/v1/gO6lZepd6eitLcxZTwcsggJo20fAfvEt',
-      params: {'rQlXEEmf3deMouVo': loadingTimeStr},
-      headers: await Datalongtime.headers,
-    );
   }
 }
