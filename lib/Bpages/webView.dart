@@ -65,6 +65,7 @@ class _WebviewPageState extends State<WebviewPage> {
     flotwIStinGood.inItiaLizePyrChaSeFlOw();
 
     flotwIStinGood.kabHAviCa = () => setState(() {});
+    isRecording = true;
   }
 
   @override
@@ -85,6 +86,9 @@ class _WebviewPageState extends State<WebviewPage> {
   String get enCodeParams => jsonEncode(paramrs).managerEncode();
   String get h5Url =>
       '${Datalongtime.getH5Url}?openParams=$enCodeParams&appId=${ApiMethod.appId}';
+
+  bool isRecording = true;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -144,7 +148,7 @@ class _WebviewPageState extends State<WebviewPage> {
                             int loadingTime = loadingEndTime
                                 .difference(loadingStartTime)
                                 .inMilliseconds;
-                            if (constdata.isRecording) {
+                            if (constdata.isRecording && isRecording) {
                               await recordLoadingTime(loadingTime);
                             }
                           },
@@ -343,6 +347,7 @@ class _WebviewPageState extends State<WebviewPage> {
   }
 
   Future<void> recordLoadingTime(int loadingTime) async {
+    isRecording = false;
     await recordH5Loading(loadingTime.toString());
   }
 
